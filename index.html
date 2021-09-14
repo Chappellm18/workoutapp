@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Get Fit</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
+                    <img src="./assets/logo.jpg" width="112" height="30">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div :class="{ 'is-active': navBarIsActive }" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">
+                        Hub
+                        <span class="icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    </a>
+
+
+
+                    <a class="navbar-item">
+                        Workout
+                        <span class="icon">
+                            <i class="fa fa-heartbeat"></i>
+                        </span>
+                    </a>
+
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Profile
+                            <span class="icon">
+                                <i class="fa fa-id-badge"></i>
+                            </span>
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Stats
+                                <span class="icon">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+                            </a>
+                            <a class="navbar-item">
+                                Exercises
+                                <span class="icon">
+                                    <i class="fa fa-running"></i>
+                                </span>
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Settings
+                                <span class="icon">
+                                    <i class="fa fa-cogs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="title">
+            Hello Heroku
+        </h1>
+        <p class="subtitle">
+            A hosted site using <strong>Bulma</strong> the time and date is {{ `${now}` }} !
+        </p>
+
+        <article class="message is-primary" :class="{ 'is-hidden': !visible }">
+            <div class="message-header" :style="` font-size: ${counter}px `" @click="grow()">
+                <p>Primary</p>
+                <button class="delete" aria-label="delete" @click="close()"></button>
+            </div>
+            <div class="message-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>
+                    Pellentesque risus mi</strong>, tempus quis placerat ut,
+                porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla.
+                Nullam gravida purus diam, et dictum <a>felis venenatis</a>
+                efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus.
+                Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor
+                ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+            </div>
+        </article>
+
+        <article class="message is-warning">
+            <div class="message-header">
+                <p>Oh No!</p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>
+                    Pellentesque risus mi</strong>, tempus quis placerat ut,
+                porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla.
+                Nullam gravida purus diam, et dictum <a>felis venenatis</a>
+                efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus.
+                Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor
+                ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+            </div>
+        </article>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        const VM = {
+            data() {
+                return {
+                    counter: 3,
+                    now: new Date().toLocaleString(),
+                    visible: true,
+                    navBarIsActive: false,
+                }
+            },
+            mounted() {
+                setInterval(() => this.now = new Date().toLocaleString(), 1000)
+            },
+            methods: {
+                grow() {
+                    this.counter += 10;
+                },
+                close() {
+                    this.visible = false;
+                }
+            }
+        }
+
+        Vue.createApp(VM).mount('.container')
+
+    </script>
+
+</body>
+
+</html>
