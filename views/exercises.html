@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Exercises</title>
+</head>
+<body>
+    <!-- navbar #start -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/index.html">
+                <img src="./assets/logo.jpg" width="112" height="30">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div :class="{ 'is-active': navBarIsActive }" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="./views/hub.html">
+                    Hub
+                    <span class="icon has-icons-right">
+                        <i class="fa fa-home is-right"></i>
+                    </span>
+                </a>
+                <a class="navbar-item" href="./views/workout.html">
+                    Workout
+                    <span class="icon has-icons-right">
+                        <i class="fa fa-heartbeat is-right"></i>
+                    </span>
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Profile
+                        <span class="icon has-icons-right">
+                            <i class="fa fa-id-badge is-right"></i>
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="./views/stats.html">
+                            Stats
+                            <span class="icon has-icons-right">
+                                <i class="fa fa-chart-line is-right"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="./views/exercises.html">
+                            Exercises
+                            <span class="icon has-icons-right">
+                                <i class="fa fa-running is-right"></i>
+                            </span>
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="./views/settings.html">
+                            Settings
+                            <span class="icon has-icons-right">
+                                <i class="fa fa-cogs is-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="./views/signup.html">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="./views/login.html">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar #end -->
+
+
+    
+</body>
+</html>
