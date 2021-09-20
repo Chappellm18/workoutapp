@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+    <title>Get Fit</title>
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <!-- navbar #start -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/index.html">
+                    <img src="./assets/logo.jpg" width="112" height="30">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div :class="{ 'is-active': navBarIsActive }" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./views/hub.html">
+                        Hub
+                        <span class="icon has-icons-right">
+                            <i class="fa fa-home is-right"></i>
+                        </span>
+                    </a>
+                    <a class="navbar-item" href="./views/workout.html">
+                        Workout
+                        <span class="icon has-icons-right">
+                            <i class="fa fa-heartbeat is-right"></i>
+                        </span>
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Profile
+                            <span class="icon has-icons-right">
+                                <i class="fa fa-id-badge is-right"></i>
+                            </span>
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="./views/stats.html">
+                                Stats
+                                <span class="icon has-icons-right">
+                                    <i class="fa fa-chart-line is-right"></i>
+                                </span>
+                            </a>
+                            <a class="navbar-item" href="./views/exercises.html">
+                                Exercises
+                                <span class="icon has-icons-right">
+                                    <i class="fa fa-running is-right"></i>
+                                </span>
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="./views/settings.html">
+                                Settings
+                                <span class="icon has-icons-right">
+                                    <i class="fa fa-cogs is-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary" href="./views/signup.html">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light" href="./views/login.html">
+                                Log in
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar #end -->
+
+
+        
+
+
+         <article class="message is-primary">
+            <div class="message-header">
+                <p>Welcome!</p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                Welcome message with users name and any updates/notifactions
+            </div>
+        </article>
+
+        
+        
+        
+
+        <div class="columns is-3">
+            <!-- Past activity Figure out how to fill a table with data -->
+            <div class="column is-one-third">
+                <div class="table">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th><abbr title="Date">Date</abbr></th>
+                            <th>Type</th>
+                            <th><abbr title="Time">Time</abbr></th>
+                            <th><abbr title="Score">Score</abbr></th>  
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            <th><abbr title="Date">Date</abbr></th>
+                            <th>Type</th>
+                            <th><abbr title="Time">Time</abbr></th>
+                            <th><abbr title="Score">Score</abbr></th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <th>{{ `${now}` }}</th>
+                                <td>Swim</td>
+                                <td>{{ `${now}` }}</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <th>{{ `${now}` }}</th>
+                                <td>Lift</td>
+                                <td>{{ `${now}` }}</td>
+                                <td>6</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            <!-- Suggested workouts -->
+            <div class="column is-one-third ">
+                <div class="card">
+                    <div class="card-image">
+                      <figure class="image ">
+                        <img src="./assets/suggestedbg.jpg">
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                      <a href="https://www.imleagues.com/spa/account/ssoredirect?schoolId=8416cbb6b1164e498beaf753a4074df3">Sign up</a> 
+                  </div>
+            </div>
+            <!-- User Profile card -->
+            <div class="column is-one-third"> 
+                <div class="card">
+                    <div class="card-image">
+                      <figure class="image is-4by3">
+                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-left">
+                          <figure class="image is-48x48">
+                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="media-content">
+                          <p class="title is-4">John Smith</p>
+                          <p class="subtitle is-6">@johnsmith</p>
+                        </div>
+                      </div>
+                  
+                      <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        <a href="#">#css</a> <a href="#">#responsive</a>
+                        <br>
+                        <time>{{ `${now}` }}</time>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+
+
+
+        const VM = {
+            data() {
+                return {
+                    counter: 3,
+                    now: new Date().toLocaleString(),
+                    visible: true,
+                    navBarIsActive: false,
+                }
+            },
+            mounted() {
+                setInterval(() => this.now = new Date().toLocaleString(), 1000)
+            },
+            methods: {
+                grow() {
+                    this.counter += 10;
+                },
+                close() {
+                    this.visible = false;
+                }
+            }
+        }
+
+        Vue.createApp(VM).mount('.container')
+
+    </script>
+
+</body>
+
+</html>
