@@ -12,11 +12,12 @@
 </head>
 
 <body style="background-color: rgb(247, 241, 234);">
-    
+
     <div class="container">
 
         <!-- navbar #start -->
-        <nav class="navbar" style="background-color: rgb(247, 241, 234); padding-bottom: 20px;" role="navigation" aria-label="main navigation" >
+        <nav class="navbar" style="background-color: rgb(247, 241, 234); padding-bottom: 20px;" role="navigation"
+            aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/index.html">
                     <img src="./assets/logo.jpg" width="112" height="30">
@@ -88,11 +89,9 @@
         </nav>
         <!-- navbar #end -->
 
-       
+        <!-- Page content #start -->
         <br>
-
-
-         <article class="message is-primary" :class="{ 'is-hidden': !visible }">
+        <article class="message is-primary" :class="{ 'is-hidden': !visible }">
             <div class="message-header">
                 <p>Welcome!</p>
                 <button class="delete" aria-label="delete" @click="close()"></button>
@@ -101,37 +100,39 @@
                 Welcome message with users name and any updates/notifactions
             </div>
         </article>
-
-        
         <section class="hero is-medium is-link" style="background-repeat: no-repeat;
         background-size:cover; background-image: url('./assets/bgimg.jpg'); background-position: center center;">
             <div class="hero-body">
-               
+
             </div>
-          </section>
-          <br>
-          <section class="hero is-medium is-info" style="background-repeat: no-repeat;
+        </section>
+        <br>
+        <section class="hero is-medium is-info" style="background-repeat: no-repeat;
           background-size:cover; background-image: url('./assets/homebg1.jpg'); background-position: center center;">
             <div class="hero-body">
-               
+
             </div>
-          </section>
-          <br>
-          <section class="hero is-medium is-primary" style="background-repeat: no-repeat;
+        </section>
+        <br>
+        <section class="hero is-medium is-primary" style="background-repeat: no-repeat;
           background-size:cover; background-image: url('./assets/homebg2.jpg'); background-position: center center;">
             <div class="hero-body">
-               
+
             </div>
-          </section>
-          <br>
-          <footer class="footer" style="background-color: rgb(197, 197, 197); padding: 25px;">
+        </section>
+        <br>
+        <!-- Page content #end -->
+
+        <!-- Footer #start -->
+        <footer class="footer" style="background-color: rgb(247, 241, 234); padding: 25px;">
             <div class="content has-text-centered">
-              <p>
-                <strong>Workout app</strong> by <a href="#">Mitch Chappell</a>.
-              </p>
+                <p>
+                    <strong>Workout app</strong> by <a href="#">Mitch Chappell</a>.
+                </p>
             </div>
-          </footer>
-       
+        </footer>
+        <!-- Footer #end -->
+
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
