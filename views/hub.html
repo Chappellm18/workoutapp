@@ -16,7 +16,7 @@
         <nav class="navbar" style="background-color: rgb(247, 241, 234);" role="navigation"
             aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="../index.html">
+                <a class="navbar-item" href="../docs/index.html">
                     <img src="../assets/logo.jpg" width="112" height="30">
                 </a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -28,13 +28,13 @@
             </div>
             <div :class="{ 'is-active': navBarIsActive }" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="hub.html">
+                    <a class="navbar-item" href="./hub.html">
                         Hub
                         <span class="icon has-icons-right">
                             <i class="fa fa-home is-right"></i>
                         </span>
                     </a>
-                    <a class="navbar-item" href="workout.html">
+                    <a class="navbar-item" href="./workout.html">
                         Workout
                         <span class="icon has-icons-right">
                             <i class="fa fa-heartbeat is-right"></i>
@@ -48,20 +48,20 @@
                             </span>
                         </a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="stats.html">
+                            <a class="navbar-item" href="./stats.html">
                                 Stats
                                 <span class="icon has-icons-right">
                                     <i class="fa fa-chart-line is-right"></i>
                                 </span>
                             </a>
-                            <a class="navbar-item" href="exercises.html">
+                            <a class="navbar-item" href="./exercises.html">
                                 Exercises
                                 <span class="icon has-icons-right">
                                     <i class="fa fa-running is-right"></i>
                                 </span>
                             </a>
                             <hr class="navbar-divider">
-                            <a class="navbar-item" href="settings.html">
+                            <a class="navbar-item" href="./settings.html">
                                 Settings
                                 <span class="icon has-icons-right">
                                     <i class="fa fa-cogs is-right"></i>
@@ -73,13 +73,19 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary" href="signup.html">
+                            <a class="button is-primary" href="./signup.html" :class="{ 'is-hidden': isLoggedin }">
                                 <strong>Sign up</strong>
                             </a>
-                            <a class="button is-light" href="login.html">
+                            <a class="button is-light" href="./login.html" :class="{ 'is-hidden': isLoggedin }"
+                                @click="isLoggedin = !isLoggedin">
                                 Log in
                             </a>
-                        </div>
+                            <a class="button" :class="{ 'is-hidden': !isLoggedin }">
+                                <span class="icon has-icons-right" >
+                                    <i class="fa fa-cogs is-right"></i>
+                                </span>
+                            </a>
+                        </div>                  
                     </div>
                 </div>
             </div>
@@ -123,9 +129,8 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div>        
             </div>
-
 
             <!-- Suggested workouts -->
             <div class="column is-one-third has-background-light" style="padding: 25px;">
@@ -172,8 +177,6 @@
                 </div>
             </div>
 
-
-
             <!-- User Profile card -->
             <div class="column is-one-third has-background-link">
                 <div class="card">
@@ -204,7 +207,30 @@
                         </div>
                     </div>
                 </div>
-
+                <br>
+                <div class="card">
+                    <div class="card-content">
+                        <label class="label">Weekly Health</label>
+                        
+                        <div class="level">
+                            <div class="level-item">
+                                <span class="icon has-icons">
+                                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="level-item">
+                                <span class="icon has-icons">
+                                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="level-item">
+                                <span class="icon has-icons">
+                                    <i class="fa fa-meh-o" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>                          
+                    </div>
+                </div>
 
             </div>
             <script src="https://unpkg.com/vue@next"></script>
@@ -215,6 +241,7 @@
                         return {
                             now: new Date().toLocaleString(),
                             visible: true,
+                            isLoggedin: false,
                         }
                     },
                     mounted() {
@@ -223,7 +250,7 @@
                     methods: {
                         close() {
                             this.visible = false;
-                        }
+                        },
                     }
                 }
                 Vue.createApp(VM).mount('.container')
