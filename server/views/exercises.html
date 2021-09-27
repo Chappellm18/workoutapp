@@ -6,17 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
-    <title>Get Fit</title>
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Hub</title>
 </head>
 
 <body style="background-color: rgb(247, 241, 234);">
-
     <div class="container">
-
         <!-- navbar #start -->
-        <nav class="navbar" style="background-color: rgb(247, 241, 234); padding-bottom: 20px;" role="navigation"
+        <nav class="navbar" style="background-color: rgb(247, 241, 234);" role="navigation"
             aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="../docs/index.html">
@@ -31,13 +28,13 @@
             </div>
             <div :class="{ 'is-active': navBarIsActive }" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="../views/hub.html">
+                    <a class="navbar-item" href="hub.html">
                         Hub
                         <span class="icon has-icons-right">
                             <i class="fa fa-home is-right"></i>
                         </span>
                     </a>
-                    <a class="navbar-item" href="../views/workout.html">
+                    <a class="navbar-item" href="workout.html">
                         Workout
                         <span class="icon has-icons-right">
                             <i class="fa fa-heartbeat is-right"></i>
@@ -51,20 +48,20 @@
                             </span>
                         </a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="../views/stats.html">
+                            <a class="navbar-item" href="stats.html">
                                 Stats
                                 <span class="icon has-icons-right">
                                     <i class="fa fa-chart-line is-right"></i>
                                 </span>
                             </a>
-                            <a class="navbar-item" href="../views/exercises.html">
+                            <a class="navbar-item" href="exercises.html">
                                 Exercises
                                 <span class="icon has-icons-right">
                                     <i class="fa fa-running is-right"></i>
                                 </span>
                             </a>
                             <hr class="navbar-divider">
-                            <a class="navbar-item" href="../views/settings.html">
+                            <a class="navbar-item" href="settings.html">
                                 Settings
                                 <span class="icon has-icons-right">
                                     <i class="fa fa-cogs is-right"></i>
@@ -76,10 +73,10 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary" href="../views/signup.html">
+                            <a class="button is-primary" href="signup.html">
                                 <strong>Sign up</strong>
                             </a>
-                            <a class="button is-light" href="../views/login.html">
+                            <a class="button is-light" href="login.html">
                                 Log in
                             </a>
                         </div>
@@ -89,39 +86,9 @@
         </nav>
         <!-- navbar #end -->
 
-        <!-- Page content #start -->
-        <br>
-        <article class="message is-primary" :class="{ 'is-hidden': !visible }">
-            <div class="message-header">
-                <p>Welcome!</p>
-                <button class="delete" aria-label="delete" @click="close()"></button>
-            </div>
-            <div class="message-body">
-                Welcome message with users name and any updates/notifactions
-            </div>
-        </article>
-        <section class="hero is-medium is-link" style="background-repeat: no-repeat;
-        background-size:cover; background-image: url('../assets/bgimg.jpg'); background-position: center center;">
-            <div class="hero-body">
-
-            </div>
-        </section>
-        <br>
-        <section class="hero is-medium is-info" style="background-repeat: no-repeat;
-          background-size:cover; background-image: url('../assets/homebg1.jpg'); background-position: center center;">
-            <div class="hero-body">
-
-            </div>
-        </section>
-        <br>
-        <section class="hero is-medium is-primary" style="background-repeat: no-repeat;
-          background-size:cover; background-image: url('../assets/homebg2.jpg'); background-position: center center;">
-            <div class="hero-body">
-
-            </div>
-        </section>
-        <br>
-        <!-- Page content #end -->
+        <!-- Page contents #start -->
+        
+        <!-- Page contents #end -->
 
         <!-- Footer #start -->
         <footer class="footer" style="background-color: rgb(247, 241, 234); padding: 25px;">
@@ -132,40 +99,6 @@
             </div>
         </footer>
         <!-- Footer #end -->
-
-    </div>
-    <script src="https://unpkg.com/vue@next"></script>
-    <script>
-
-
-
-
-        const VM = {
-            data() {
-                return {
-                    counter: 3,
-                    now: new Date().toLocaleString(),
-                    visible: true,
-                    navBarIsActive: false,
-                }
-            },
-            mounted() {
-                setInterval(() => this.now = new Date().toLocaleString(), 1000)
-            },
-            methods: {
-                grow() {
-                    this.counter += 10;
-                },
-                close() {
-                    this.visible = false;
-                }
-            }
-        }
-
-        Vue.createApp(VM).mount('.container')
-
-    </script>
-
 </body>
 
 </html>
