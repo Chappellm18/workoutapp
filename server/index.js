@@ -23,7 +23,7 @@ app.use(auth(config));
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
   //res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-  res.send('hi');
+  res.sendFile('C:\Users\Mitch\Desktop\WebPro\workoutapp\workoutapp\public\index.html');
 });
 
 app.get('/profile', requiresAuth(), (req, res) => {

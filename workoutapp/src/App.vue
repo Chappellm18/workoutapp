@@ -19,3 +19,8 @@
   color: #2c3e50;
 }
 </style>
+<script>
+export default {
+  
+}
+</script>
