@@ -23,7 +23,7 @@ app.use(auth(config));
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
   //res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-  res.sendFile(path.join(__dirname+'/docs/index.html'));
+  res.send('hi');
 });
 
 app.get('/profile', requiresAuth(), (req, res) => {
