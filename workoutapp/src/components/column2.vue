@@ -1,6 +1,6 @@
 <template>
   <!-- Suggested workouts -->
-    <div class="column is-one-third has-background-light" style="padding: 25px">
+    <div class="has-background-info is-one-third" style="padding: 10px; border-radius: 15px;">
       <div class="card">
         <div class="card-image">
           <figure class="image">

@@ -19,6 +19,9 @@
                 <a class="navbar-item">
                   <router-link to="/">Home</router-link>
                 </a>
+                <a class="navbar-item">
+                  <router-link to="/hub">Hub</router-link>
+                </a>
           
                 <a class="navbar-item">
                   <router-link to="/workout">Workout Now</router-link>

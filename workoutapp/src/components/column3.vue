@@ -1,6 +1,6 @@
 <template>
    <!-- User Profile card -->
-    <div class="column is-one-third has-background-link">
+    <div class="has-background-link is-one-third" style="padding: 10px; border-radius: 15px;">
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">

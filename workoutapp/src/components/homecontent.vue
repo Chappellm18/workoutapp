@@ -3,13 +3,13 @@
   <div class="container">
     <ul>
       <li
-        v-for="item in notifactions"
-        v-bind:key="item.id"
-        v-bind:value="item.message"
+        v-for="notifaction in notifications"
+        v-bind:key="notifaction.id"
+        v-bind:value="notifaction.message"
       >
         <article class="message is-primary" :class="{ 'is-hidden': !visible }">
           <div class="message-header">
-            <p>{{`${item.title}`}}</p>
+            <p>{{`${notifaction.title}`}}</p>
             <button
               class="delete"
               aria-label="delete"
@@ -17,16 +17,17 @@
             ></button>
           </div>
           <div class="message-body">
-            {{ `${item.message}` }}
+            {{ `${notifaction.message}` }}
           </div>
         </article>
+        <br />
       </li>
     </ul>
 
     <ul>
       <li v-for="item in items" v-bind:key="item.id" v-bind:value="item.img">
         <section
-          class="hero is-medium"
+          class="hero is-large"
           v-bind:style="{ backgroundImage: 'url(' + `${item.img}` + ')' }"
         >
           <div class="hero-body">
@@ -52,7 +53,8 @@ export default {
         { title: "background3", img: require("../assets/homebg2.jpg"), id: 3, message: "Something will go here", link: "" },
       ],
       notifications: [
-        { title: "notify", message: require("../assets/bgimg.jpg"), id: 1 },
+        { title: "notify", message: "Message about stuff", id: 1 },
+        { title: "notify 2", message: "Message about other stuff", id: 2 },
       ],
     };
   },
