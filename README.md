@@ -16,4 +16,4 @@ The other is my resume site, I currently don’t have a domain for it but it can
 In this class I want to learn how to make professional code so I can go into the “real world” with the skills needed to succeed. I worked an internship which exposed me to professional code and am hoping this class provides the guidance I feel I need to create my own professional level programs. 
 
 # Me
-![Image of Me](./assets/me.jpg)
+![Image of Me](./pictures/me.jpg)
