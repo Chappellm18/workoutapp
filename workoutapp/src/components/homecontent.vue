@@ -1,15 +1,10 @@
 <template>
 
   <div class="container">
-    <ul>
-      <li
-        v-for="notifaction in notifications"
-        v-bind:key="notifaction.id"
-        v-bind:value="notifaction.message"
-      >
+    
         <article class="message is-primary" :class="{ 'is-hidden': !visible }">
           <div class="message-header">
-            <p>{{`${notifaction.title}`}}</p>
+            <p>{{notifications[notifyIndex].title}}</p>
             <button
               class="delete"
               aria-label="delete"
@@ -17,12 +12,12 @@
             ></button>
           </div>
           <div class="message-body">
-            {{ `${notifaction.message}` }}
+            {{notifications[notifyIndex].message}}
           </div>
         </article>
+
         <br />
-      </li>
-    </ul>
+     
 
     <ul>
       <li v-for="item in items" v-bind:key="item.id" v-bind:value="item.img">
@@ -39,6 +34,7 @@
         <br />
       </li>
     </ul>
+    
   </div>
 </template>
 
@@ -56,11 +52,17 @@ export default {
         { title: "notify", message: "Message about stuff", id: 1 },
         { title: "notify 2", message: "Message about other stuff", id: 2 },
       ],
+      notifyIndex: 0
     };
   },
   methods: {
     close() {
-      this.visible = false;
+      if (this.notifyIndex < this.notifications.length-1) {
+        this.notifyIndex++;
+      }
+      else {
+        this.visible = false;
+      }
     },
   },
 };
