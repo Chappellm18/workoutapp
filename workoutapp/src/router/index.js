@@ -8,6 +8,7 @@ import exercises from '../views/exercises.vue'
 import signup from '../views/signup.vue'
 import login from '../views/login.vue'
 import profile from '../views/profile.vue'
+import contact from '../views/contact.vue'
 
 
 const routes = [
@@ -20,6 +21,7 @@ const routes = [
   { path: '/profile', name: 'profile', component: profile },
   { path: '/login', name: 'login', component: login },
   { path: '/signup', name: 'signup', component: signup },
+  { path: '/contact', name: 'contact', component: contact },
 ]
 
 const router = createRouter({

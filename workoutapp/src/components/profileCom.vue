@@ -1,12 +1,22 @@
 <template>
   <div>
+    <br />
     <div class="level">
       <div class="level-item" id="profilepicture">
         <div class="card">
-          <div class="card-image">
-            <figure class="image is-3by5">
+          <div
+            class="card-image"
+            style="
+               {
+                height: 600px;
+                width: 400px;
+              }
+            "
+          >
+            <figure class="image">
               <img
-                src="{{ `${profileImg}` }}"
+                class="is-rounded"
+                v-bind:src="`${profileImg}`"
                 alt="Placeholder image"
               />
             </figure>
@@ -37,17 +47,35 @@
         </div>
       </div>
     </div>
+    <br />
+    <hr />
+    <br />
     <div class="level">
       <div class="level-item" id="stuff1">
         
+        <ul class="has-text-left">
+          <label><strong>Personal Bio</strong></label>
+          <li>Name: {{`${userName}`}}</li>
+          <li>Age: {{`${age}`}}</li>
+          <li>Location: {{`${location}`}}</li>
+          <li>Email: {{`${userEmail}`}}</li>
+        </ul>
       </div>
       <div class="level-item" id="stuff2">
-
+        
+        <ul class="has-text-left">
+          <label><strong>Workout Bio</strong></label>
+          <li>Favorite Workout: {{`${mostCommonWorkout}`}}</li>
+          <li>Workout Style: {{`${workoutType}`}}</li>
+          <li>Weekly Average: {{`${workoutAmount}`}}</li>
+        </ul>
+        
       </div>
     </div>
-
-    <nav class="level">
-      
+    <br />
+    <hr />
+    <br />
+    <div class="level">
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Workout Time</p>
@@ -72,7 +100,7 @@
           <p class="title">{{ `${weeklyCals}` }}</p>
         </div>
       </div>
-    </nav>
+    </div>
   </div>
 </template>
 
@@ -87,7 +115,15 @@ export default {
         { title: "Workout Bot 2", message: "stuff here 2" },
         { title: "Workout Bot 3", message: "stuff here 3" },
       ],
-      profileImg: require('../assets/bgimg.jpg'),
+      // this is all the user data I will need
+      profileImg: require("../assets/homebg1.jpg"),
+      userName: "john",
+      userEmail: "user@user.com",
+      age: 50,
+      location: "placeville",
+      mostCommonWorkout: "the sit",
+      workoutType: "type of effort?",
+      workoutAmount: "3 days a week",
       workoutTime: 123,
       weeklyCals: 321,
       following: 123,
@@ -96,7 +132,7 @@ export default {
   },
   methods: {
     next() {
-      if (this.botIndex < (this.botMessages).length-1) this.botIndex++;
+      if (this.botIndex < this.botMessages.length - 1) this.botIndex++;
       else this.botIndex = 0;
 
       this.bot.title = this.botMessages[this.botIndex].title;

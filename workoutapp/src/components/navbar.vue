@@ -3,7 +3,7 @@
     <nav class="navbar" style="background-color: rgb(247, 241, 234);" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <img v-bind:src="'url(' + `${logo}` + ')'" width="112" height="28" />
+          <img v-bind:src=" `${logo}` " width="112" height="28" />
         </a>
 
         <a
@@ -99,7 +99,5 @@ export default {
 </script>
 
 <style>
-.contaiNav {
-  height: 100px;
-}
+
 </style>

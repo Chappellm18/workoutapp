@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             profile: [{
-                img: require(''), 
+                img: require('../assets/logo.jpg'), 
                 title: 'Profile Picture'
             }]
         }
