@@ -58,7 +58,7 @@
 
         <div class="navbar-end">
           <div class="navbar-item" v-if="!signedin">
-            <div class="buttons">
+            <div class="buttons" @click="logged()">
               <a class="button is-primary">
                 <router-link to="/signup"><strong>Sign up</strong></router-link>
               </a>
@@ -69,9 +69,7 @@
           </div>
 
           <div class="navbar-item" v-else>
-            <div class="buttons">
-              <a class="button is-primary"> settings </a>
-            </div>
+            <navBprofile />
           </div>
         </div>
       </div>
@@ -80,15 +78,24 @@
 </template>
 
 <script>
+import navBprofile from './navBprofile.vue'
 export default {
   data() {
     return {
       navBarIsActive: false,
       logo: require("../assets/logo.jpg"),
       signedin: false,
-    };
+    }
   },
-};
+  components: {
+    navBprofile
+  },
+  methods: {
+    logged() {
+      this.signedin = true;
+    },
+  }
+}
 </script>
 
 <style>
