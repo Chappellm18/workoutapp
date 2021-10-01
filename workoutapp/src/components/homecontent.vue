@@ -32,6 +32,7 @@
           </div>
         </section>
         <br />
+        <br />
       </li>
     </ul>
     
@@ -69,4 +70,8 @@ export default {
 </script>
 
 <style>
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>

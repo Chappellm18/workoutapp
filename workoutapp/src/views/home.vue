@@ -9,10 +9,28 @@
         <!-- navbar #end -->
 
         <!-- Page content #start -->
+        
+        <hr>
+        <br>
         <br>
         
         <homecon />
 
+
+        <br>
+        <hr>
+        <br>
+
+        <workoutMonthly />
+
+        <br>
+        <hr>
+        <br>
+        
+        <social />
+
+        <br>
+        <br>
         <br>
         <!-- Page content #end -->
 
@@ -31,6 +49,8 @@
 import homecon from '../components/homecontent.vue'
 import navB from '../components/navbar.vue'
 import foot from '../components/footer.vue'
+import social from '../components/social.vue'
+import workoutMonthly from '../components/workoutMonthly.vue'
 export default {
     data() {
         return {
@@ -54,7 +74,9 @@ export default {
     components: {
         navB,
         homecon,
-        foot
+        foot,
+        social,
+        workoutMonthly
     }
 }
 </script>
