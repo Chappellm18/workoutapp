@@ -27,7 +27,7 @@
         <hr>
         <br>
         
-        <social />
+        <socialComponent />
 
         <br>
         <br>
@@ -49,7 +49,7 @@
 import homecon from '../components/homecontent.vue'
 import navB from '../components/navbar.vue'
 import foot from '../components/footer.vue'
-import social from '../components/social.vue'
+import socialComponent from '../components/socialComponent.vue'
 import workoutMonthly from '../components/workoutMonthly.vue'
 export default {
     data() {
@@ -75,7 +75,7 @@ export default {
         navB,
         homecon,
         foot,
-        social,
+        socialComponent,
         workoutMonthly
     }
 }

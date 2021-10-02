@@ -1,5 +1,9 @@
 <template>
-  <div class="columns is-2">
+<div>
+  <br>
+  <h1 class="is-size-1 has-text-center"><strong>Exercises</strong></h1>
+  <hr>
+<div class="columns is-2">
     <div class="column is-one-third">
       <section class="section is-large is-primary">
         <aside class="menu has-text-left">
@@ -129,6 +133,8 @@
       </section>
     </div>
   </div>
+</div>
+  
 </template>
 
 <script>

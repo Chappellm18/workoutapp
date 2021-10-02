@@ -45,7 +45,7 @@
                 <router-link to="/profile">View Profile</router-link>
               </a>
               <a class="navbar-item">
-                <router-link to="/stats">View Stats</router-link>
+                <router-link to="/social">View Social</router-link>
               </a>
 
               <hr class="navbar-divider" />

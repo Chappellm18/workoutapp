@@ -1,14 +1,13 @@
 <template>
   <div>
-    <ul style="display: grid;grid-template-columns:repeat(3,1fr);">
+    <ul style="display: grid; grid-template-columns: repeat(3, 1fr)">
       <li
         v-for="social in socialFeed"
         v-bind:key="social.id"
         v-bind:value="social.message"
-        style="display: inline; padding: 20px;"
+        style="display: inline; padding: 20px"
       >
-     
-              <div class="box">
+        <div class="box">
           <article class="media">
             <div class="media-left">
               <figure class="image is-128x128">
@@ -18,7 +17,9 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>{{ `${social.profileName}` }}</strong><small>{{ `${social.profileHandle}` }}</small><small> -{{ `${social.timeAgo}` }}</small>
+                  <strong>{{ `${social.profileName}` }}</strong
+                  ><small>{{ `${social.profileHandle}` }}</small
+                  ><small> -{{ `${social.timeAgo}` }}</small>
                   <br />
                   {{ `${social.message}` }}
                 </p>
@@ -26,9 +27,7 @@
             </div>
           </article>
         </div>
-          
-     
-        
+
         <br />
       </li>
     </ul>
@@ -89,5 +88,4 @@ export default {
 </script>
 
 <style>
-
 </style>
