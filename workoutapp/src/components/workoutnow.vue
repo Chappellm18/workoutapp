@@ -51,8 +51,10 @@
               <strong>{{ workout.type }}</strong>
             </div>
             <hr />
+            <h1 class="is-size-2">{{workout.score}}</h1>
             <div class="card-content">
               <div class="level">
+                
                 <div class="level-item">
                   {{ workout.date }}
                 </div>
@@ -87,30 +89,36 @@ export default {
       timeStart: null,
       timeStop: null,
       duration: 0,
+      score: 0,
+      type: 'core',
       running: false,
       pastWorkouts: [
-        { length: 10, date: new Date().toLocaleString(), type: "Run" },
-        { length: 20, date: new Date().toLocaleString(), type: "Swim" },
-        { length: 30, date: new Date().toLocaleString(), type: "Gym" },
-        { length: 10, date: new Date().toLocaleString(), type: "Run" },
-        { length: 20, date: new Date().toLocaleString(), type: "Swim" },
-        { length: 30, date: new Date().toLocaleString(), type: "Gym" },
+        { length: 10, score: 5, date: new Date().toLocaleString(), type: "Run" },
+        { length: 20, score: 5, date: new Date().toLocaleString(), type: "Swim" },
+        { length: 30, score: 5, date: new Date().toLocaleString(), type: "Gym" },
+        { length: 10, score: 5, date: new Date().toLocaleString(), type: "Run" },
+        { length: 20, score: 5, date: new Date().toLocaleString(), type: "Swim" },
+        { length: 30, score: 5, date: new Date().toLocaleString(), type: "Gym" },
       ],
     };
   },
   methods: {
     startWorkout() {
       this.started = true;
-      if (this.running) return;
-
+      this.timeStart = new Date().getTime();
+      if (this.running) {
+        this.duration = ((new Date().getTime()) - this.timeStart);
+        return;
+      } 
       this.running = true;
 
-      this.timeStart = new Date().getTime();
+      
     },
     endWorkout() {
       this.started = false;
       this.timeStop = new Date().getTime();
-      this.duration = this.timeStop - this.timeStart;
+      this.duration = (this.timeStop - this.timeStart)/1000;
+      this.pastWorkouts.push({ length: this.duration, score: 10, date: new Date().toLocaleString(), type: this.type})
     },
   },
 };

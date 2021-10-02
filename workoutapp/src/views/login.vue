@@ -8,13 +8,13 @@
 
                         <div class="box">
                             <h3 class="title has-text-black">Welcome Back!</h3>
-                            <form>
+                            <form id="signup-form" @submit.prevent="processForm">
                                 <div class="field">
                                     <div class="control has-icons-left">
                                         <span class="icon has-icons-left">
                                             <i class="fa fa-user is-left"></i>
                                         </span>
-                                        <input class="input is-large" type="email" placeholder="Email" autofocus="">
+                                        <input v-model="email" name="email" class="input is-large" type="email" placeholder="Email" autofocus="">
                                     </div>
                                 </div>
 
@@ -23,7 +23,7 @@
                                         <span class="icon has-icons-left">
                                             <i class="fa fa-unlock-alt is-left"></i>
                                         </span>
-                                        <input class="input is-large" type="password" placeholder="Password">
+                                        <input v-model="password" name="password" class="input is-large" type="password" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="field">
@@ -31,7 +31,7 @@
                                         <input type="checkbox"> Remember me
                                     </label>
                                 </div>
-                                <button class="button is-block is-info is-large is-fullwidth">
+                                <button type="submit" class="button is-block is-info is-large is-fullwidth">
                                     Login
 
                                     <i class="fa fa-sign-in" aria-hidden="true"></i>
@@ -52,9 +52,25 @@
 </template>
 
 <script>
+import router from '../router/index.js'
 export default {
-    name: 'navB'
-}
+    name: 'navB',
+    data() {
+    return {
+      userInfo: {
+        email: "",
+        password: "",
+        arr: []
+      },
+    };
+  },
+  methods: {
+    processForm: function () {
+      this.arr = ({email: this.userEmail, password: this.userPassword});
+      router.push('/');
+    },
+  },
+};
 </script>
 
 <style>
