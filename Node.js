@@ -1,0 +1,1 @@
+require('./server/index').fork('index.js');
