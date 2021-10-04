@@ -17,9 +17,6 @@
   "keywords": [
     "heroku"
   ],
-  "engines": {
-    "node": "14.x"
-  },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@vue/cli-plugin-babel": "~4.5.0",
