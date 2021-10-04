@@ -11,14 +11,12 @@
     "bulma": "^0.9.3",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.0-0",
+    "node": "^16.10.0"
   },
   "keywords": [
     "heroku"
   ],
-  "engines": {
-    "node": "14.x"
-  },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@vue/cli-plugin-babel": "~4.5.0",

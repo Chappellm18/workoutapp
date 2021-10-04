@@ -1,5 +1,5 @@
 {
-    "name": "classclone",
+    "name": "workoutapp",
     "version": "1.0.0",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +16,7 @@
         "dotenv": "^10.0.0",
         "express": "4.17.1",
         "express-openid-connect": "^2.5.0",
+        "node": "^16.10.0",
         "npx": "^10.2.2"
     },
     "devDependencies": {
