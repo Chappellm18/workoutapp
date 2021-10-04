@@ -1,1 +1,1 @@
-require('./server/index').fork('index.js');
+require('server').fork(__dirname + '/server.index.js');
