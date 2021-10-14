@@ -14,7 +14,7 @@
                                         <span class="icon has-icons-left">
                                             <i class="fa fa-user is-left"></i>
                                         </span>
-                                        <input v-model="email" name="email" class="input is-large" type="email" placeholder="Email" autofocus="">
+                                        <input v-model="handle" name="handle" class="input is-large" type="text" placeholder="Handle" autofocus="">
                                     </div>
                                 </div>
 
@@ -58,7 +58,7 @@ export default {
     data() {
     return {
       userInfo: {
-        email: "",
+        handle: "",
         password: "",
         arr: []
       },
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     processForm: function () {
-      this.arr = ({email: this.userEmail, password: this.userPassword});
+      this.arr = ({handle: this.handle, password: this.userPassword});
       router.push('/');
     },
   },

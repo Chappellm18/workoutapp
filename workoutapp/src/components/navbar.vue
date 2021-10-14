@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import { Login } from '../services/session.js'
 import navBprofile from './navBprofile.vue'
 export default {
   data() {
@@ -92,7 +93,7 @@ export default {
   },
   methods: {
     logged() {
-      this.signedin = true;
+      Login(this.handle, this.password)
     },
   }
 }
