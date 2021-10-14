@@ -22,36 +22,36 @@
 
       <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
         <div class="navbar-start">
-          <a class="navbar-item">
-            <router-link to="/">Home</router-link>
-          </a>
-          <a class="navbar-item">
-            <router-link to="/hub">Hub</router-link>
-          </a>
+          
+            <router-link to="/" class="navbar-item is-tab" active-class="is-active">Home</router-link>
+         
+          
+            <router-link to="/hub" class="navbar-item is-tab" active-class="is-active">Hub</router-link>
+          
 
-          <a class="navbar-item">
-            <router-link to="/workout">Workout Now</router-link>
-          </a>
+          
+            <router-link to="/workout" class="navbar-item is-tab" active-class="is-active">Workout Now</router-link>
+          
 
-          <a class="navbar-item">
-            <router-link to="/exercises">Exercises</router-link>
-          </a>
+          
+            <router-link to="/exercises" class="navbar-item is-tab" active-class="is-active">Exercises</router-link>
+          
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> Profile </a>
+            <router-link to="/profile" class="navbar-link is-tab" active-class="is-active"> Profile </router-link>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item">
-                <router-link to="/profile">View Profile</router-link>
-              </a>
-              <a class="navbar-item">
-                <router-link to="/social">View Social</router-link>
-              </a>
+              
+                <router-link to="/profile" class="navbar-item is-tab" active-class="is-active">View Profile</router-link>
+              
+              
+                <router-link to="/social" class="navbar-item is-tab" active-class="is-active">View Social</router-link>
+              
 
               <hr class="navbar-divider" />
-              <a class="navbar-item">
-                <router-link to="/settings">Settings</router-link>
-              </a>
+              
+                <router-link to="/settings" class="navbar-item is-tab" active-class="is-active">Settings</router-link>
+              
             </div>
           </div>
         </div>
