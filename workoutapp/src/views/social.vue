@@ -7,7 +7,15 @@
     <br>
     <br>
     <!-- Page contents #start -->
-    <socials />
+    <div class="columns">
+          <div class="column is-one-third is-offset-one-third">
+            <div class="post" v-for="p in posts" :key="p.src">
+              <post :post="p" />
+            </div>
+          </div>
+          <div class="column is-one-third is-offset-one-third"></div>
+          <div class="column is-one-third is-offset-one-third"></div>
+        </div>
     <!-- Page contents #end -->
     <br />
     <!-- Footer #start -->
@@ -19,12 +27,19 @@
 <script>
 import navB from "../components/navbar.vue";
 import foot from "../components/footer.vue";
-import socials from '../components/socialPageComponent.vue'
+import post from "../components/post.vue";
+import session from "../services/session";
+import { GetWall } from "../services/posts";
 export default {
+  data() {
+    return {
+      posts: GetWall(session.user.handle),
+    };
+  },
   components: {
     navB,
     foot,
-    socials
+    post
   },
 };
 </script>

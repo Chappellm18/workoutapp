@@ -47,7 +47,7 @@
                 </button>
                 <hr />
                 <p class="has-text-grey">
-                  <a href="../views/login.html">Login</a>
+                  <router-link to="/login">Have an account? Login</router-link>
                   <br />
                   <a href="#">Forgot Password?</a>
                 </p>

@@ -1,26 +1,32 @@
 <template>
-  <div class="buttons">
-              <a class="button is-primary">
-                <figure class="image is-128x128">
-                  <img class="is-rounded" src="{{ `${profile.img}` }}" alt="{{ `${profile.title}` }}"> <!-- Profile picture when logged in. Maybe make it its own component -->
-                </figure> 
-              </a>
-            </div>
+    <div class="buttons" v-if="!Session.user">
+          <router-link to="/signup" class="button is-primary">
+            <strong>Sign up</strong>
+          </router-link>
+          <router-link to="/login" class="button is-light">
+            Log in
+          </router-link>
+    </div>
+    <div v-else>
+        Hello {{name}} 
+    </div>
 </template>
 
 <script>
+import Session from "../services/session";
 export default {
-    data() {
-        return {
-            profile: [{
-                img: require('../assets/logo.jpg'), 
-                title: 'Profile Picture'
-            }]
+    data (){
+        return ({ 
+            Session
+        })
+    },
+    computed:{
+        name(){
+            return this.Session.user.firstName + ' ' + this.Session.user.lastName;
         }
     }
 }
 </script>
 
 <style>
-
 </style>
