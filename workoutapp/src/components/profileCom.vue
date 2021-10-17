@@ -55,10 +55,9 @@
         
         <ul class="has-text-left">
           <label><strong>Personal Bio</strong></label>
-          <li>Name: {{`${userName}`}}</li>
-          <li>Age: {{`${age}`}}</li>
-          <li>Location: {{`${location}`}}</li>
-          <li>Email: {{`${userEmail}`}}</li>
+          <li>Name: {{Session.user.firstName}}</li>
+          <li>Age: {{Session.user.age}}</li>
+          <li>Location: {{Session.user.location}}</li>
         </ul>
       </div>
       <div class="level-item" id="stuff2">
@@ -105,9 +104,11 @@
 </template>
 
 <script>
+import Session from '../services/session'
 export default {
   data() {
     return {
+      Session,
       bot: { title: "Workout Bot", message: "stuff here" },
       botIndex: 0,
       botMessages: [

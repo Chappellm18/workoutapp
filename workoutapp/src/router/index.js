@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import home from '../views/home.vue'
 import hub from '../views/hub.vue'
-import settings from '../views/settings.vue'
 import workout from '../views/workout.vue'
 import exercises from '../views/exercises.vue'
 import signup from '../views/signup.vue'
@@ -15,8 +14,7 @@ import Session from '../services/session'
 const routes = [
   { path: '/', name: 'home', component: home },
   { path: '/hub', name: 'hub', component: hub },
-  { path: '/settings', name: 'settings', component: settings },
-  { path: '/social', name: 'social', component: social },
+  { path: '/social', name: 'social', component: social, meta: { requiresLogin: true } },
   { path: '/workout', name: 'workout', component: workout },
   { path: '/exercises', name: 'exercises', component: exercises },
   { path: '/profile', name: 'profile', component: profile, meta: { requiresLogin: true } },
@@ -33,6 +31,7 @@ const router = createRouter({
 
 router.beforeEach((to,from,next) => {
   if(to.meta.requiresLogin && !Session.user){
+    Session.toRoute = to;
     next('/login');
   }
   else {
