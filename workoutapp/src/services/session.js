@@ -1,19 +1,21 @@
-import router from "../router/index.js";
+import router from "../router";
 import { Login } from "./users";
 
-
-
-const Session = {
+const session = {
     user: null,
     messages: [],
-    token: null,
     toRoute: '/profile',
-    loginTrigger(handle, passwordInput) {
-    
-        this.user = Login(handle, passwordInput);
-        router.push(Session.toRoute)
-        
-    }
-}
+    loginTrigger(handle, password){
 
-export default Session;
+        const response = Login(handle, password);
+
+        this.user = response.user;
+
+        router.push(this.toRoute);
+
+    }
+};
+
+export default session;
+
+//export function
