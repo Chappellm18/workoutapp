@@ -1,6 +1,3 @@
-/* B"H
-*/
-
 const list = [
     { 
         firstName: 'Moshe',
@@ -13,6 +10,9 @@ const list = [
             "plotkinm@newpaltz.edu"
         ],
         following: [ { handle: '@vp', isApproved: true }, { handle: '@johnsmith', isApproved: true }, ],
+        age: 30,
+        location: 'New Paltz',
+        bio: 'Hi im moshe',
         get name(){ return this.firstName + ' ' + this.lastName },
     },
     { 
@@ -26,6 +26,9 @@ const list = [
             "vp@wh.com"
         ],
         following: [ { handle: '@johnsmith', isApproved: true }, ],
+        age: 30,
+        location: 'whitehouse',
+        bio: 'im the Vp',
     },
     { 
         firstName: 'John',
@@ -38,6 +41,9 @@ const list = [
             "john@smith.com"
         ],
         following: [ { handle: '@vp', isApproved: true }, ],
+        age: 30,
+        location: 'john town',
+        bio: 'jonny boy',
     },
 
 ];
@@ -45,6 +51,18 @@ const list = [
 export function GetAll() { return list; }
 export function Get(user_id) { return list[user_id]; }
 export function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); } 
+
+export function GetFriendData(handle){
+    const holder = [];
+    const curr = (GetByHandle(handle));
+    holder.push(curr.pic);
+    holder.push(curr.firstName);
+    holder.push((curr.following).length);
+    holder.push(curr.bio);
+    return holder;
+}
+
+
 export function Add(user) {
     if(!user.firstName){
         throw { code: 422, msg: "First Name is required" }

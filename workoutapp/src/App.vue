@@ -7,6 +7,7 @@
     <title>Get Fit</title>
 </head>
   <router-view />
+  <br>
 </html>
 </template>
 

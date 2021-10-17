@@ -1,5 +1,3 @@
-/* B"H
-*/
 import { GetByHandle } from "./users";
 
 const list = [
@@ -80,4 +78,4 @@ export function Delete(post_id) {
     const post = list[post_id];
     list.splice(post_id, 1);
     return post;
-}
+} 

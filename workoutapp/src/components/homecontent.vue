@@ -47,7 +47,7 @@ export default {
       items: [
         { title: "background1", img: require("../assets/bgimg.jpg"), id: 1, message: "Get Outdoors", link: "https://www.traillink.com/activity/hiking-trails/" },
         { title: "background2", img: require("../assets/homebg1.jpg"), id: 2, message: "Gym Day", link: "https://www.imleagues.com/spa/account/ssoredirect?schoolId=8416cbb6b1164e498beaf753a4074df3" },
-        { title: "background3", img: require("../assets/homebg2.jpg"), id: 3, message: "Something will go here", link: "" },
+        { title: "background3", img: require("../assets/homebg2.jpg"), id: 3, message: "Workout News", link: "" },
       ],
       notifications: [
         { title: "notify", message: "Message about stuff", id: 1 },

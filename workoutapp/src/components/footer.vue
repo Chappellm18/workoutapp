@@ -34,7 +34,6 @@
           <li><a><router-link to="/hub">Hub</router-link></a></li>
           <li><a><router-link to="/workout">Workout</router-link></a></li>
           <li><a><router-link to="/profile">Profile</router-link></a></li>
-          <li><a><router-link to="/settings">Settings</router-link></a></li>
         </ul>
       </div>
       <div class="column is-one-third has-text-center">

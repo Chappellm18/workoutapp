@@ -46,11 +46,7 @@
               
               
                 <router-link to="/social" class="navbar-item is-tab" active-class="is-active">View Social</router-link>
-              
-
-              <hr class="navbar-divider" />
-              
-                <router-link to="/settings" class="navbar-item is-tab" active-class="is-active">Settings</router-link>
+            
               
             </div>
           </div>

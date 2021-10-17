@@ -1,7 +1,18 @@
 <template>
-  <div class="card-content">
-      <div>Hello {{ name }}</div>
+  <div class="columns is-gapless" style="width: 300px; height: 50px; padding: 5px;">
+    <div class="column">
+      <figure class="image is-128x128">
+      <img :src="Session.user.pic" alt="profile picture">
+      </figure>
     </div>
+    <div class="column">
+      <div>
+        {{ name }}
+        <br>
+        {{ Session.user.handle }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -10,17 +21,16 @@ import Session from "../services/session.js";
 export default {
   data() {
     return {
-      Session
-    }
+      Session,
+    };
   },
   computed: {
     name() {
-      return Session.user.firstName + ' ' + Session.user.lastName;
-    }
-  }
+      return Session.user.firstName + " " + Session.user.lastName;
+    },
+  },
 };
 </script>
 
 <style>
-
 </style>
