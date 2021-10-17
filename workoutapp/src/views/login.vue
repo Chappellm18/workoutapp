@@ -1,73 +1,84 @@
 <template>
   <div class="bg-img">
-        <section class="hero is-fullheight">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <div class="column is-4 is-offset-4">
-                        
-
-                        <div class="box">
-                            <h3 class="title has-text-black">Welcome Back!</h3>
-                            <form id="signup-form" @submit.prevent="processForm">
-                                <div class="field">
-                                    <div class="control has-icons-left">
-                                        <span class="icon has-icons-left">
-                                            <i class="fa fa-user is-left"></i>
-                                        </span>
-                                        <input v-model="email" name="email" class="input is-large" type="email" placeholder="Email" autofocus="">
-                                    </div>
-                                </div>
-
-                                <div class="field">
-                                    <div class="control has-icons-left">
-                                        <span class="icon has-icons-left">
-                                            <i class="fa fa-unlock-alt is-left"></i>
-                                        </span>
-                                        <input v-model="password" name="password" class="input is-large" type="password" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="checkbox">
-                                        <input type="checkbox"> Remember me
-                                    </label>
-                                </div>
-                                <button type="submit" class="button is-block is-info is-large is-fullwidth">
-                                    Login
-
-                                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-
-                                </button>
-                                <p class="has-text-grey">
-                                    <a href="../views/signup.html">Sign Up</a>
-                                    <a href="#">Forgot Password</a>
-                                </p>
-                            </form>
-                        </div>
-
-                    </div>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-4 is-offset-4">
+            <div class="box">
+              <h3 class="title has-text-black">Welcome Back!</h3>
+              <form @submit.prevent="login()">
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <span class="icon has-icons-left">
+                      <i class="fa fa-user is-left"></i>
+                    </span>
+                    <input
+                      v-model="handle"
+                      name="handle"
+                      class="input is-large"
+                      type="text"
+                      placeholder="Handle"
+                      autofocus=""
+                    />
+                  </div>
                 </div>
+
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <span class="icon has-icons-left">
+                      <i class="fa fa-unlock-alt is-left"></i>
+                    </span>
+                    <input
+                      v-model="password"
+                      name="password"
+                      class="input is-large"
+                      type="password"
+                      placeholder="Password"
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="checkbox">
+                    <input type="checkbox" /> Remember me
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="button is-block is-info is-large is-fullwidth"
+                >
+                  Login
+
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>
+                <p class="has-text-grey">
+                  <router-link to="/signup">Sign Up</router-link>
+                  <br />
+                  <a href="#">Forgot Password</a>
+                </p>
+              </form>
             </div>
-        </section>
-    </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
-import router from '../router/index.js'
+import Session from '../services/session'
 export default {
-    name: 'navB',
-    data() {
+  name: "navB",
+  data() {
     return {
-      userInfo: {
-        email: "",
-        password: "",
-        arr: []
-      },
-    };
+      Session,
+      handle: null,
+      password: null,
+    }
   },
   methods: {
-    processForm: function () {
-      this.arr = ({email: this.userEmail, password: this.userPassword});
-      router.push('/');
+    login() {
+      
+      Session.loginTrigger(this.handle, this.password);
     },
   },
 };
@@ -75,12 +86,12 @@ export default {
 
 <style>
 .bg-img {
-        background-image: url('../assets/bgimg.jpg');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-color: #999;
-        margin: 0;
-    }
+  background-image: url("../assets/bgimg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #999;
+  margin: 0;
+}
 </style>

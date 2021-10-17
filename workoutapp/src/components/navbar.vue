@@ -22,78 +22,64 @@
 
       <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
         <div class="navbar-start">
-          <a class="navbar-item">
-            <router-link to="/">Home</router-link>
-          </a>
-          <a class="navbar-item">
-            <router-link to="/hub">Hub</router-link>
-          </a>
+          
+            <router-link to="/" class="navbar-item is-tab" active-class="is-active">Home</router-link>
+         
+          
+            <router-link to="/hub" class="navbar-item is-tab" active-class="is-active">Hub</router-link>
+          
 
-          <a class="navbar-item">
-            <router-link to="/workout">Workout Now</router-link>
-          </a>
+          
+            <router-link to="/workout" class="navbar-item is-tab" active-class="is-active">Workout Now</router-link>
+          
 
-          <a class="navbar-item">
-            <router-link to="/exercises">Exercises</router-link>
-          </a>
+          
+            <router-link to="/exercises" class="navbar-item is-tab" active-class="is-active">Exercises</router-link>
+          
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"> Profile </a>
+            <router-link to="/profile" class="navbar-link is-tab" active-class="is-active"> Profile </router-link>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item">
-                <router-link to="/profile">View Profile</router-link>
-              </a>
-              <a class="navbar-item">
-                <router-link to="/social">View Social</router-link>
-              </a>
+              
+                <router-link to="/profile" class="navbar-item is-tab" active-class="is-active">View Profile</router-link>
+              
+              
+                <router-link to="/social" class="navbar-item is-tab" active-class="is-active">View Social</router-link>
+              
 
               <hr class="navbar-divider" />
-              <a class="navbar-item">
-                <router-link to="/settings">Settings</router-link>
-              </a>
+              
+                <router-link to="/settings" class="navbar-item is-tab" active-class="is-active">Settings</router-link>
+              
             </div>
           </div>
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item" v-if="!signedin">
-            <div class="buttons" @click="logged()">
-              <a class="button is-primary">
-                <router-link to="/signup"><strong>Sign up</strong></router-link>
-              </a>
-              <a class="button is-light">
-                <router-link to="/login">Log in</router-link>
-              </a>
-            </div>
-          </div>
-
-          <div class="navbar-item" v-else>
-            <navBprofile />
-          </div>
+          <loginBadge />
         </div>
+        
       </div>
+      
     </nav>
   </div>
 </template>
 
 <script>
-import navBprofile from './navBprofile.vue'
+import Session from '../services/session.js'
+import loginBadge from './loginBadge.vue'
 export default {
   data() {
     return {
+      Session,
       navBarIsActive: false,
       logo: require("../assets/logo.jpg"),
       signedin: false,
     }
   },
   components: {
-    navBprofile
-  },
-  methods: {
-    logged() {
-      this.signedin = true;
-    },
+    loginBadge
   }
 }
 </script>
