@@ -57,44 +57,29 @@
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item" v-if="!signedin">
-            <div class="buttons" @click="logged()">
-              <a class="button is-primary">
-                <router-link to="/signup"><strong>Sign up</strong></router-link>
-              </a>
-              <a class="button is-light">
-                <router-link to="/login">Log in</router-link>
-              </a>
-            </div>
-          </div>
-
-          <div class="navbar-item" v-else>
-            <navBprofile />
-          </div>
+          <loginBadge />
         </div>
+        
       </div>
+      
     </nav>
   </div>
 </template>
 
 <script>
-import { Login } from '../services/session.js'
-import navBprofile from './navBprofile.vue'
+import Session from '../services/session.js'
+import loginBadge from './loginBadge.vue'
 export default {
   data() {
     return {
+      Session,
       navBarIsActive: false,
       logo: require("../assets/logo.jpg"),
       signedin: false,
     }
   },
   components: {
-    navBprofile
-  },
-  methods: {
-    logged() {
-      Login(this.handle, this.password)
-    },
+    loginBadge
   }
 }
 </script>

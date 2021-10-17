@@ -13,24 +13,68 @@
                       <i class="fa fa-user is-left"></i>
                     </span>
                     <input
-                      v-model="userEmail"
-                      name="userEmail"
+                      v-model="handle"
+                      name="handle"
                       class="input is-large"
-                      type="email"
-                      placeholder="Email"
+                      type="text"
+                      placeholder="handle"
                       autofocus=""
                     />
                   </div>
                 </div>
-
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <span class="icon has-icons-left">
+                      <i class="fa fa-user is-left"></i>
+                    </span>
+                    <input
+                      v-model="firstName"
+                      name="firstName"
+                      class="input is-large"
+                      type="text"
+                      placeholder="firstName"
+                      autofocus=""
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <span class="icon has-icons-left">
+                      <i class="fa fa-user is-left"></i>
+                    </span>
+                    <input
+                      v-model="lastName"
+                      name="lastName"
+                      class="input is-large"
+                      type="text"
+                      placeholder="lastName"
+                      autofocus=""
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <span class="icon has-icons-left">
+                      <i class="fa fa-user is-left"></i>
+                    </span>
+                    <input
+                      v-model="email"
+                      name="email"
+                      class="input is-large"
+                      type="email"
+                      placeholder="email"
+                      autofocus=""
+                    />
+                  </div>
+                </div>
                 <div class="field">
                   <div class="control has-icons-left">
                     <span class="icon has-icons-left">
                       <i class="fa fa-unlock-alt is-left"></i>
                     </span>
                     <input
-                      v-model="userPassword"
-                      name="userPassword"
+                      v-model="password"
+                      name="password"
                       class="input is-large"
                       type="password"
                       placeholder="Password"
@@ -61,21 +105,27 @@
 </template>
 
 <script>
-import router from '../router/index.js'
 
+import router from '../router/index.js'
+import Session from '../services/session'
+import { Add } from '../services/users'
 export default {
   data() {
     return {
-      userInfo: {
-        userEmail: "",
-        userPassword: "",
-        arr: []
-      },
+      
+        firstName: null,
+        lastName: null,
+        handle: null,
+        pic: null,
+        password: null,
+        email: null,
+        Session
+      
     };
   },
   methods: {
     processForm: function () {
-      this.arr = ({email: this.userEmail, password: this.userPassword});
+      Add(this.user);
       router.push('/login');
     },
   },

@@ -6,7 +6,7 @@
           <div class="column is-4 is-offset-4">
             <div class="box">
               <h3 class="title has-text-black">Welcome Back!</h3>
-              <form id="signup-form" @submit.prevent="login()">
+              <form @submit.prevent="login()">
                 <div class="field">
                   <div class="control has-icons-left">
                     <span class="icon has-icons-left">
@@ -45,7 +45,6 @@
                 <button
                   type="submit"
                   class="button is-block is-info is-large is-fullwidth"
-                  @click="login"
                 >
                   Login
 
@@ -66,19 +65,20 @@
 </template>
 
 <script>
-import { Session } from "../services/session";
+import Session from '../services/session'
 export default {
   name: "navB",
   data() {
     return {
       Session,
-      handle: "",
-      password: "",
-    };
+      handle: null,
+      password: null,
+    }
   },
   methods: {
     login() {
-      Session.Login(this.handle, this.password);
+      
+      Session.loginTrigger(this.handle, this.password);
     },
   },
 };

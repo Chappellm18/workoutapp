@@ -28,12 +28,13 @@
 import navB from "../components/navbar.vue";
 import foot from "../components/footer.vue";
 import post from "../components/post.vue";
-import session from "../services/session";
+import Session from "../services/session";
 import { GetWall } from "../services/posts";
 export default {
   data() {
     return {
-      posts: GetWall(session.user.handle),
+      Session,
+      posts: GetWall(Session.user.handle),
     };
   },
   components: {
