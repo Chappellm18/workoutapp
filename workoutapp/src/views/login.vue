@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import Session from '../services/session'
+import Session from "../services/session";
 export default {
   name: "navB",
   data() {
@@ -73,11 +73,10 @@ export default {
       Session,
       handle: null,
       password: null,
-    }
+    };
   },
   methods: {
     login() {
-      
       Session.loginTrigger(this.handle, this.password);
     },
   },

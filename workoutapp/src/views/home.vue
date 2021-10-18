@@ -1,86 +1,66 @@
 <template>
- 
-<body style="background-color: rgb(247, 241, 234);">
-
+  <body style="background-color: rgb(247, 241, 234)">
     <div class="container">
+      <!-- Page content #start -->
 
-        <!-- navbar #start -->
-        <navB />
-        <!-- navbar #end -->
+      <hr />
+      <br />
+      <br />
 
-        <!-- Page content #start -->
-        
-        <hr>
-        <br>
-        <br>
-        
-        <homecon />
+      <homecon />
 
+      <br />
+      <hr />
+      <br />
 
-        <br>
-        <hr>
-        <br>
+      <workoutMonthly />
 
-        <workoutMonthly />
+      <br />
+      <hr />
+      <br />
 
-        <br>
-        <hr>
-        <br>
-        
-        <socialComponent />
+      <socialComponent />
 
-        <br>
-        <br>
-        <br>
-        <!-- Page content #end -->
-
-        <!-- Footer #start -->
-        <foot />
-        <!-- Footer #end -->
-
+      <br />
+      <br />
+      <br />
+      <!-- Page content #end -->
     </div>
-
-</body>
-
-
+  </body>
 </template>
 
 <script>
-import homecon from '../components/homecontent.vue'
-import navB from '../components/navbar.vue'
-import foot from '../components/footer.vue'
-import socialComponent from '../components/socialComponent.vue'
-import workoutMonthly from '../components/workoutMonthly.vue'
+import homecon from "../components/homecontent.vue";
+import socialComponent from "../components/socialComponent.vue";
+import workoutMonthly from "../components/workoutMonthly.vue";
 export default {
-    data() {
-        return {
-            counter: 3,
-            now: new Date().toLocaleString(),
-            visible: true,
-            navBarIsActive: false,
-        }
+  data() {
+    return {
+      counter: 3,
+      now: new Date().toLocaleString(),
+      visible: true,
+      navBarIsActive: false,
+    };
+  },
+  mounted() {
+    setInterval(() => (this.now = new Date().toLocaleString()), 1000);
+  },
+  methods: {
+    grow() {
+      this.counter += 10;
     },
-    mounted() {
-        setInterval(() => this.now = new Date().toLocaleString(), 1000)
+    close() {
+      this.visible = false;
     },
-    methods: {
-        grow() {
-            this.counter += 10;
-        },
-        close() {
-            this.visible = false;
-        }
-    },
-    components: {
-        navB,
-        homecon,
-        foot,
-        socialComponent,
-        workoutMonthly
-    }
-}
+  },
+  components: {
+    homecon,
+
+    socialComponent,
+    workoutMonthly,
+  },
+};
 </script>
 
 <style>
-
 </style>
