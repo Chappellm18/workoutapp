@@ -3,7 +3,7 @@
     <section class="section is-large is-light has-text-left ">
       <h1 class="title is-size-1 has-text-black">Workout Monthly</h1>
       <br>
-      <h2 class="subtitle has-text-primary-light">
+      <h2 class="subtitle has-text-primary-black">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
         Odio numquam aspernatur error eveniet, perspiciatis illum dolor 
         consequuntur recusandae facilis nobis at eaque, ullam obcaecati 
