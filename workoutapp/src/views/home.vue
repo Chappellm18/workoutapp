@@ -18,8 +18,12 @@
       <br />
       <hr />
       <br />
-
-      <socialComponent />
+      <div class="posts" v-if="Session.user">
+        <post />
+      </div>
+      <div class="noposts" v-else>
+        <nopost />
+      </div>
 
       <br />
       <br />
@@ -31,11 +35,14 @@
 
 <script>
 import homecon from "../components/homecontent.vue";
-import socialComponent from "../components/socialComponent.vue";
+import Nopost from "../components/nopost.vue";
+import post from "../components/post.vue";
 import workoutMonthly from "../components/workoutMonthly.vue";
+import Session from "../services/session";
 export default {
   data() {
     return {
+      Session,
       counter: 3,
       now: new Date().toLocaleString(),
       visible: true,
@@ -55,8 +62,8 @@ export default {
   },
   components: {
     homecon,
-
-    socialComponent,
+    Nopost,
+    post,
     workoutMonthly,
   },
 };
