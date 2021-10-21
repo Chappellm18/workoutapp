@@ -3,11 +3,10 @@
 /// --------------------------------------------- \\\
 const express = require('express')
 const app = express()
-const { Router } = require('express')
-const { auth, requiresAuth } = require('express-openid-connect')
+//const { auth, requiresAuth } = require('express-openid-connect')
 const port = 3000
 const path = require('path')
-const config = {
+/*const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
@@ -15,7 +14,7 @@ const config = {
   clientID: 'UeCCWisLGBWq4wKneHuDYw1trHNDurfL',
   issuerBaseURL: 'https://dev-fy741j28.us.auth0.com'
 };
-
+*/
 const dirName = path.join(__dirname, '..', '/docs');
 app.use(express.static(dirName));
 
@@ -28,7 +27,7 @@ app.use(express.static(dirName));
 
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
+//app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
@@ -36,13 +35,19 @@ app.get('/', (req, res) => {
   res.sendFile(dirName + '/index.html');
 });
 
+
+
+/*
 app.get('/profile', requiresAuth(), (req, res) => {
-    res.send(JSON.stringify(req.oidc.user));
+  res.send(JSON.stringify(req.oidc.user));
 });
 app.get('/logout', requiresAuth(), (req, res) => {
-    res.send('Bye');
+  res.send('Bye');
 });
+*/
+
+
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`)
 })
