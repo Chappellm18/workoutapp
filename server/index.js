@@ -5,7 +5,8 @@ const express = require('express')
 const app = express()
 //const { auth, requiresAuth } = require('express-openid-connect')
 const port = 3000
-const path = require('path')
+const path = require('path');
+const usersController = require('./controllers/users');
 /*const config = {
   authRequired: false,
   auth0Logout: true,
@@ -35,7 +36,10 @@ app.get('/', (req, res) => {
   res.sendFile(dirName + '/index.html');
 });
 
-
+app.get('*', (req, res, next) => {
+  console.log('a request came in');
+  next();
+});
 
 /*
 app.get('/profile', requiresAuth(), (req, res) => {
@@ -45,7 +49,7 @@ app.get('/logout', requiresAuth(), (req, res) => {
   res.send('Bye');
 });
 */
-
+app.use('/users', usersController);
 
 
 app.listen(port, () => {
