@@ -81,5 +81,8 @@ export default {
 </script>
 
 <style>
-
+.contaiNav {
+  width: 80%;
+  margin: 0 auto;
+}
 </style>
