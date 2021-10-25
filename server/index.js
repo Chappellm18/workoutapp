@@ -4,7 +4,8 @@
 const express = require('express')
 const app = express()
 //const { auth, requiresAuth } = require('express-openid-connect')
-const port = 3000
+require('dotenv').config();
+const port = process.env.PORT ?? 3000;
 const path = require('path');
 const usersController = require('./controllers/users');
 

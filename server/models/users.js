@@ -31,6 +31,7 @@ const list = [
         age: 30,
         location: 'whitehouse',
         bio: 'im the Vp',
+        get name() { return this.firstName + ' ' + this.lastName },
     },
     {
         firstName: 'John',
@@ -46,6 +47,7 @@ const list = [
         age: 30,
         location: 'john town',
         bio: 'jonny boy',
+        get name() { return this.firstName + ' ' + this.lastName },
     },
 
 ];
