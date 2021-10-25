@@ -8,13 +8,14 @@ const port = 3000
 const path = require('path');
 const usersController = require('./controllers/users');
 
+// Tells the server what folders to look at for built front end
 const dirName = path.join(__dirname, '..', '/docs');
 app.use(express.static(dirName));
 
 
 app.use('/users', usersController);
 
-
+// serves up the front end vue
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')))
 
 app.listen(port, () => {
