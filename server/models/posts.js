@@ -1,4 +1,4 @@
-import { GetByHandle } from "./users";
+const { GetByHandle } = require("./users");
 
 const list = [
     {
@@ -64,9 +64,13 @@ module.exports.GetFeed = function GetFeed(handle) {
 
 module.exports.Get = function Get(post_id) { return list[post_id]; }
 module.exports.Add = function Add(post) {
-    if (!post.user_handle) {
-        throw { code: 422, msg: "Post must have an Owner" }
-    }
+    if (!post.user_handle) { throw { code: 422, msg: "Post must have an Owner" } }
+
+    // Set new post data
+    post.time = Date();
+    post.id = list.length;
+
+    // Push the new post and return it
     list.push(post);
     return { ...post };
 }
@@ -81,6 +85,5 @@ module.exports.Delete = function Delete(post_id) {
     list.splice(post_id, 1);
     return post;
 }
-
 
 module.exports.Search = q => list.find(x => x.caption.includes(q));

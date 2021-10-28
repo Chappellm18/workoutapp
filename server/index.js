@@ -1,25 +1,25 @@
-/// --------------------------------------------- \\\
-/// --------------- Using Express --------------- \\\
-/// --------------------------------------------- \\\
+// requires
 const express = require('express')
-const app = express()
-//const { auth, requiresAuth } = require('express-openid-connect')
-require('dotenv').config();
-const port = process.env.PORT ?? 3000;
-const path = require('path');
 const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
+require('dotenv').config();
+const path = require('path');
+// Create the app
+const app = express()
+// consts
+const port = process.env.PORT ?? 3000;
 
-// Tells the server what folders to look at for built front end
-const dirName = path.join(__dirname, '..', '/docs');
-app.use(express.static(dirName));
 
+app // app uses here
+  .use(express.static(path.join(__dirname, '..', '/docs'))) // Tells the server what folders to look at for built front end
+  .use(express.json()) // read the body in and parses into json -> goes to varible called body?
+  .use('/users', usersController) // use the controller for users
+  .use('/posts', postsController) // use the controller for posts
 
-app.use('/users', usersController);
-app.use('/posts', postsController);
+app // app getters
+  .get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html'))) // serves up the front end vue
+  .get('/:user_id', (req, res, next) => { res.send(req.params.user_id) })
 
-// serves up the front end vue
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')))
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
