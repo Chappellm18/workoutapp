@@ -105,6 +105,10 @@ module.exports.Login = function Login(handle, password) {
     const user = list.find(x => x.handle == handle);
     if (!user) throw { code: 401, msg: "Sorry there is no user with that handle" };
 
+    bcrypt.compare(someOtherPlaintextPassword, hash, function (err, result) {
+        // result == false
+    });
+
     if (!(password == user.password)) {
         throw { code: 401, msg: "Wrong Password" };
     }

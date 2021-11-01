@@ -64,6 +64,7 @@ module.exports.GetFeed = function GetFeed(handle) {
 
 module.exports.Get = function Get(post_id) { return list[post_id]; }
 module.exports.Add = function Add(post) {
+
     if (!post.user_handle) { throw { code: 422, msg: "Post must have an Owner" } }
 
     // Set new post data

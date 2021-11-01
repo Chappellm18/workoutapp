@@ -1,0 +1,26 @@
+### return headers
+http://localhost:3100 
+
+### get all users
+http://localhost:3100/users/
+
+### get user at ID
+http://localhost:3100/users/1
+
+### get all posts
+http://localhost:3100/posts/
+
+### get post by ID
+http://localhost:3100/posts/5
+NP-Demo: Best Class Ever
+
+### POST
+POST http://localhost:3100/posts/
+Content-Type: application/json
+
+{
+    "src": "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+    "alt": "Random image",
+    "user_handle": "@JewPaltz",
+    "isPublic": true
+}

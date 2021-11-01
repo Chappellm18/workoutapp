@@ -6,7 +6,7 @@ require('dotenv').config();
 const path = require('path');
 // Create the app
 const app = express()
-// consts
+// other consts
 const port = process.env.PORT ?? 3000;
 
 
@@ -15,9 +15,7 @@ app // app uses here
   .use(express.json()) // read the body in and parses into json -> goes to varible called body?
   .use('/users', usersController) // use the controller for users
   .use('/posts', postsController) // use the controller for posts
-  .use((err, req, res, next) => {
-    res.status(err.code ?? 500).send(err);
-  })
+  .use((err, req, res, next) => { res.status(err.code ?? 500).send(err); }) // error handling 
 
 app // app getters
   .get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html'))) // serves up the front end vue
