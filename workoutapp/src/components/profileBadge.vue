@@ -7,7 +7,7 @@
     </div>
     <div class="column">
       <div>
-        {{ name }}
+        {{ Session.user.name() }}
         <br>
         {{ Session.user.handle }}
       </div>
@@ -21,14 +21,9 @@ import Session from "../services/session.js";
 export default {
   data() {
     return {
-      Session,
+      Session
     };
-  },
-  computed: {
-    name() {
-      return Session.user.firstName + " " + Session.user.lastName;
-    },
-  },
+  }
 };
 </script>
 
