@@ -12,15 +12,15 @@ import social from '../views/social.vue'
 import Session from '../services/session'
 
 const routes = [
-  { path: '/', name: 'home', component: home },
-  { path: '/hub', name: 'hub', component: hub },
+  { path: '/', name: 'home', component: home, meta: { requiresLogin: false } },
+  { path: '/hub', name: 'hub', component: hub, meta: { requiresLogin: false } },
   { path: '/social', name: 'social', component: social, meta: { requiresLogin: true } },
-  { path: '/workout', name: 'workout', component: workout },
-  { path: '/exercises', name: 'exercises', component: exercises },
+  { path: '/workout', name: 'workout', component: workout, meta: { requiresLogin: false } },
+  { path: '/exercises', name: 'exercises', component: exercises, meta: { requiresLogin: false } },
   { path: '/profile', name: 'profile', component: profile, meta: { requiresLogin: true } },
-  { path: '/login', name: 'login', component: login },
-  { path: '/signup', name: 'signup', component: signup },
-  { path: '/contact', name: 'contact', component: contact },
+  { path: '/login', name: 'login', component: login, meta: { requiresLogin: false } },
+  { path: '/signup', name: 'signup', component: signup, meta: { requiresLogin: false } },
+  { path: '/contact', name: 'contact', component: contact, meta: { requiresLogin: false } },
 ]
 
 const router = createRouter({

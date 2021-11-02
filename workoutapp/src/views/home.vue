@@ -18,11 +18,11 @@
       <br />
       <hr />
       <br />
-      <div class="posts" v-if="Session.user">
-        <post />
+      <div class="posts" v-if="!Session.user">
+        <nopost />
       </div>
       <div class="noposts" v-else>
-        <nopost />
+        <post />
       </div>
 
       <br />
