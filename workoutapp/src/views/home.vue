@@ -1,9 +1,13 @@
 <template>
-  <body style="background-color: rgb(247, 241, 234)">
+  <body>
     <div class="container">
       <!-- Page content #start -->
 
       <hr />
+      <div class="notif">
+        <notifiy />
+      </div>
+
       <br />
       <br />
 
@@ -18,11 +22,12 @@
       <br />
       <hr />
       <br />
+
       <div class="posts" v-if="!Session.user">
         <nopost />
       </div>
       <div class="noposts" v-else>
-        <post />
+        <nopost />
       </div>
 
       <br />
@@ -36,7 +41,8 @@
 <script>
 import homecon from "../components/homecontent.vue";
 import Nopost from "../components/nopost.vue";
-import post from "../components/post.vue";
+import notifiy from "../components/notifiy.vue";
+//import post from "../components/post.vue";
 import workoutMonthly from "../components/workoutMonthly.vue";
 import Session from "../services/session";
 export default {
@@ -63,8 +69,9 @@ export default {
   components: {
     homecon,
     Nopost,
-    post,
+    //post,
     workoutMonthly,
+    notifiy,
   },
 };
 </script>

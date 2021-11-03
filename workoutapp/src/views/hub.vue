@@ -1,5 +1,5 @@
 <template>
-  <body style="background-color: rgb(247, 241, 234)">
+  <body>
     <div class="container">
       <br />
 

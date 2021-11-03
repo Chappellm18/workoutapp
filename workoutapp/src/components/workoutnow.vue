@@ -13,9 +13,7 @@
         steps for each exercise
       </p>
       <br />
-      <button class="button is-link" @click="startWorkout()">
-        Start Workout
-      </button>
+      <button class="button" @click="startWorkout()">Start Workout</button>
     </section>
     <section class="is-medium" :class="{ 'is-hidden': !started }">
       <p><strong>Workout in progress!</strong></p>
@@ -27,7 +25,7 @@
         steps for each exercise
       </p>
       <br />
-      <button class="button is-link" @click="endWorkout()">End Workout</button>
+      <button class="button" @click="endWorkout()">End Workout</button>
     </section>
 
     <br />
@@ -129,7 +127,10 @@ export default {
     };
   },
   mounted() {
-    setInterval(() => this.duration = ((new Date().getTime())-this.timeStart)/1000, 100)
+    setInterval(
+      () => (this.duration = (new Date().getTime() - this.timeStart) / 1000),
+      100
+    );
   },
   methods: {
     startWorkout() {
@@ -153,7 +154,7 @@ export default {
       });
     },
   },
-}
+};
 </script>
 
 <style>

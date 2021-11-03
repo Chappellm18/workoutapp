@@ -1,5 +1,5 @@
 <template>
-  <body style="background-color: rgb(247, 241, 234)">
+  <body>
     <div class="container">
       <!-- Page contents #start -->
       <exercises />
@@ -17,5 +17,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.container {
+  padding: 0;
+  margin: 0 auto;
+}
 </style>

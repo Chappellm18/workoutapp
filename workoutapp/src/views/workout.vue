@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="background-color: rgb(247, 241, 234)">
+  <div class="container">
     <br />
     <br />
     <!-- Page contents #start -->

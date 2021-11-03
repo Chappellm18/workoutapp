@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="background-color: rgb(247, 241, 234)">
+  <div class="container">
     <hr />
     <br />
     <br />
@@ -64,6 +64,9 @@
     </div>
     <!-- Page contents #end -->
     <br />
+    <br />
+
+    <hr />
   </div>
 </template>
 
@@ -100,5 +103,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

@@ -1,8 +1,5 @@
 <template>
-  <footer
-    class="footer"
-    style="background-color: rgb(247, 241, 234); padding: 25px"
-  >
+  <footer class="footer">
     <br />
     <br />
     <br />
@@ -14,38 +11,16 @@
     </div>
     <br />
     <br />
-    <div class="columns is-4">
-      <div class="column is-one-third has-text-center">
-        <a>Other Links</a>
-        <hr />
-        <ul>
-          <li><a>here</a></li>
-          <li><a>here</a></li>
-          <li><a>here</a></li>
-          <li><a>here</a></li>
-          <li><a>here</a></li>
-        </ul>
+    <div class="level">
+      <div class="level-item">
+        <div class="github"></div>
       </div>
-      <div class="column is-one-third has-text-center">
-        <a>Site Map</a>
-        <hr />
-        <ul>
-          <li><a><router-link to="/">Home</router-link></a></li>
-          <li><a><router-link to="/hub">Hub</router-link></a></li>
-          <li><a><router-link to="/workout">Workout</router-link></a></li>
-          <li><a><router-link to="/profile">Profile</router-link></a></li>
-        </ul>
+
+      <div class="level-item">
+        <div class="newpaltz"></div>
       </div>
-      <div class="column is-one-third has-text-center">
-        <a>Contact/Support</a>
-        <hr />
-        <ul>
-          <li><a><router-link to="/contact">Contact Me</router-link></a></li>
-          <li><a href="#">Email</a></li>
-          <li><a href="https://github.com/Chappellm18">Github</a></li>
-          <li><a href="https://www.newpaltz.edu/">School</a></li>
-        </ul>
-      </div>
+      <br />
+      <br />
     </div>
   </footer>
 </template>
@@ -54,5 +29,21 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+.footer {
+  background-color: rgba(11, 3, 38, 0.8);
+  padding: 25px;
+}
+.github {
+  background-image: url("../assets/github.png");
+  background-size: contain;
+  height: 64px;
+  width: 64px;
+}
+.newpaltz {
+  background-image: url("../assets/nplogo.jpg");
+  background-size: contain;
+  height: 64px;
+  width: 64px;
+}
 </style>
