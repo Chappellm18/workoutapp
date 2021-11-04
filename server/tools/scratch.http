@@ -24,3 +24,23 @@ Content-Type: application/json
     "user_handle": "@JewPaltz",
     "isPublic": true
 }
+
+### Add user
+http://localhost:3100/users/register
+Content-Type: application/json
+
+{
+        "firstName": "Joe",
+        "lastName": "Biden",
+        "handle": "@p",
+        "pic": "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+        "password": "Hirm",
+        "isAdmin": true,
+        "emails": [ "p@wh.com" ],
+        "following": [{ "handle": "@vp", "isApproved": true }],
+        "age": 30,
+        "location": "whitehouse",
+        "bio": "im the Vp"
+}
+
+###

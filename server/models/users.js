@@ -68,11 +68,16 @@ module.exports.GetFriendData = function GetFriendData(handle) {
 
 
 module.exports.Add = function Add(user) {
-    if (!user.firstName) {
-        throw { code: 422, msg: "First Name is required" }
-    }
-    list.push(user);
-    return { ...user, password: undefined };
+    if (!user.firstName) { return Promise.reject( { code: 422, msg: "First Name is required" } ) }
+
+    bcrypt.hash(user.password, +process.env.SALTROUNDS)
+        .then(hash => { 
+        user.password = hash; // save the hash as the new password
+
+        list.push(user); // add user to database
+        return { ...user, password: undefined };
+    })
+
 }
 
 
@@ -103,17 +108,19 @@ module.exports.Delete = function Delete(user_id) {
 module.exports.Login = function Login(handle, password) {
     console.log({ handle, password })
     const user = list.find(x => x.handle == handle);
-    if (!user) throw { code: 401, msg: "Sorry there is no user with that handle" };
+    if (!user) { return Promise.reject( { code: 401, msg: "Sorry there is no user with that handle" } ) };
 
-    bcrypt.compare(someOtherPlaintextPassword, hash, function (err, result) {
-        // result == false
+    return bcrypt.compare(password, user.password)
+        .then(result => {
+
+        if (!result) {
+            return Promise.reject({ code: 401, msg: "Wrong Password" });
+        }
+
+        const data = { ...user, password: undefined };
+
+        return { user: data };
     });
 
-    if (!(password == user.password)) {
-        throw { code: 401, msg: "Wrong Password" };
-    }
 
-    const data = { ...user, password: undefined };
-
-    return { user: data };
 }

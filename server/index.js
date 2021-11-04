@@ -11,7 +11,7 @@ const port = process.env.PORT ?? 3000;
 
 
 app // app uses here
-  .use(express.static(path.join(__dirname, '..', '/docs'))) // Tells the server what folders to look at for built front end
+  .use(express.static(path.join(__dirname, '..', '/docs/'))) // Tells the server what folders to look at for built front end
   .use(express.json()) // read the body in and parses into json -> goes to varible called body?
   .use('/users', usersController) // use the controller for users
   .use('/posts', postsController) // use the controller for posts
