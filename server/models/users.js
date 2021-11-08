@@ -1,7 +1,4 @@
-
-
-const list = [
-    {
+const list = [{
         firstName: 'Moshe',
         lastName: 'Plotkin',
         handle: '@JewPaltz',
@@ -11,11 +8,19 @@ const list = [
         emails: [
             "plotkinm@newpaltz.edu"
         ],
-        following: [{ handle: '@vp', isApproved: true }, { handle: '@johnsmith', isApproved: true },],
+        following: [{
+            handle: '@vp',
+            isApproved: true
+        }, {
+            handle: '@johnsmith',
+            isApproved: true
+        }, ],
         age: 30,
         location: 'New Paltz',
         bio: 'Hi im moshe',
-        get name() { return this.firstName + ' ' + this.lastName },
+        get name() {
+            return this.firstName + ' ' + this.lastName
+        },
     },
     {
         firstName: 'Kamala',
@@ -27,11 +32,16 @@ const list = [
         emails: [
             "vp@wh.com"
         ],
-        following: [{ handle: '@johnsmith', isApproved: true },],
+        following: [{
+            handle: '@johnsmith',
+            isApproved: true
+        }, ],
         age: 30,
         location: 'whitehouse',
         bio: 'im the Vp',
-        get name() { return this.firstName + ' ' + this.lastName },
+        get name() {
+            return this.firstName + ' ' + this.lastName
+        },
     },
     {
         firstName: 'John',
@@ -43,18 +53,32 @@ const list = [
         emails: [
             "john@smith.com"
         ],
-        following: [{ handle: '@vp', isApproved: true },],
+        following: [{
+            handle: '@vp',
+            isApproved: true
+        }, ],
         age: 30,
         location: 'john town',
         bio: 'jonny boy',
-        get name() { return this.firstName + ' ' + this.lastName },
+        get name() {
+            return this.firstName + ' ' + this.lastName
+        },
     },
 
 ];
 
-module.exports.GetAll = function GetAll() { return list; }
-module.exports.Get = function Get(user_id) { return list[user_id]; }
-module.exports.GetByHandle = function GetByHandle(handle) { return ({ ...list.find(x => x.handle == handle), password: undefined }); }
+module.exports.GetAll = function GetAll() {
+    return list;
+}
+module.exports.Get = function Get(user_id) {
+    return list[user_id];
+}
+module.exports.GetByHandle = function GetByHandle(handle) {
+    return ({
+        ...list.find(x => x.handle == handle),
+        password: undefined
+    });
+}
 
 module.exports.GetFriendData = function GetFriendData(handle) {
     const holder = [];
@@ -68,15 +92,23 @@ module.exports.GetFriendData = function GetFriendData(handle) {
 
 
 module.exports.Add = function Add(user) {
-    if (!user.firstName) { return Promise.reject( { code: 422, msg: "First Name is required" } ) }
+    if (!user.firstName) {
+        return Promise.reject({
+            code: 422,
+            msg: "First Name is required"
+        })
+    }
 
     bcrypt.hash(user.password, +process.env.SALTROUNDS)
-        .then(hash => { 
-        user.password = hash; // save the hash as the new password
+        .then(hash => {
+            user.password = hash; // save the hash as the new password
 
-        list.push(user); // add user to database
-        return { ...user, password: undefined };
-    })
+            list.push(user); // add user to database
+            return {
+                ...user,
+                password: undefined
+            };
+        })
 
 }
 
@@ -96,7 +128,10 @@ module.exports.Update = function Update(user_id, user) {
         oldObj.pic = user.pic;
     }
     //list[user_id] = newObj ;
-    return { ...oldObj, password: undefined };
+    return {
+        ...oldObj,
+        password: undefined
+    };
 }
 
 module.exports.Delete = function Delete(user_id) {
@@ -105,22 +140,40 @@ module.exports.Delete = function Delete(user_id) {
     return user;
 }
 
-module.exports.Login = function Login(handle, password) {
-    console.log({ handle, password })
+module.exports.Login = async function Login(handle, password) {
+    console.log({
+        handle,
+        password
+    })
     const user = list.find(x => x.handle == handle);
-    if (!user) { return Promise.reject( { code: 401, msg: "Sorry there is no user with that handle" } ) };
+    if (!user) {
+        return Promise.reject({
+            code: 401,
+            msg: "Sorry there is no user with that handle"
+        })
+    };
 
-    return bcrypt.compare(password, user.password)
-        .then(result => {
+    const result = await bcrypt.compare(password, user.password)
 
-        if (!result) {
-            return Promise.reject({ code: 401, msg: "Wrong Password" });
-        }
+    if (!result) {
+        return Promise.reject({
+            code: 401,
+            msg: "Wrong Password"
+        });
+    }
 
-        const data = { ...user, password: undefined };
+    const data = {
+        ...user,
+        password: undefined
+    };
 
-        return { user: data };
-    });
+    return {
+        user: data
+    };
+}
 
-
+module.exports.Async = async () => {
+    console.log("inner function 1");
+    await Promise.resolve();
+    console.log("inner function 2");
 }

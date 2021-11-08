@@ -14,10 +14,11 @@
     "license": "ISC",
     "dependencies": {
         "@vue/cli": "^4.5.13",
+        "bcrypt": "^5.0.1",
         "dotenv": "^10.0.0",
         "express": "4.17.1",
-        "bcrypt": "^5.0.1",
         "express-openid-connect": "^2.5.0",
+        "mongodb": "^4.1.4",
         "node": "16.9.1",
         "npx": "^10.2.2"
     },
