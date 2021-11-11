@@ -88,3 +88,10 @@ module.exports.Delete = function Delete(post_id) {
 }
 
 module.exports.Search = q => list.find(x => x.caption.includes(q));
+
+module.exports.Seed = async () => {
+    for (const x of list) {
+        await this.Add(x)
+    }
+}
+

@@ -1,6 +1,7 @@
 // set up subpipeline
 const express = require("express");
 const model = require("../models/users");
+const { createUser } = require('../models/database.js');
 const app = express.Router();
 
 app
@@ -23,6 +24,7 @@ app
             .Add(req.body)
             .then(user => {
                 res.status(201).send(user);
+                createUser(user);
             })
             .catch(next);
     });
