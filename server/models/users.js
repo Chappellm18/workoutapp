@@ -1,4 +1,14 @@
-const list = [{
+/* B"H
+*/
+const bcrypt = require('bcrypt');
+const { ObjectId } = require('bson');
+const { client } = require('./database');
+
+const collection = client.db(process.env.MONGO_DB).collection('users');
+module.exports.collection = collection;
+
+const list = [
+    {
         firstName: 'Moshe',
         lastName: 'Plotkin',
         handle: '@JewPaltz',
@@ -8,19 +18,8 @@ const list = [{
         emails: [
             "plotkinm@newpaltz.edu"
         ],
-        following: [{
-            handle: '@vp',
-            isApproved: true
-        }, {
-            handle: '@johnsmith',
-            isApproved: true
-        }, ],
-        age: 30,
-        location: 'New Paltz',
-        bio: 'Hi im moshe',
-        get name() {
-            return this.firstName + ' ' + this.lastName
-        },
+        following: [{ handle: '@vp', isApproved: true }, { handle: '@johnsmith', isApproved: true },],
+        get name() { return this.firstName + ' ' + this.lastName },
     },
     {
         firstName: 'Kamala',
@@ -32,16 +31,7 @@ const list = [{
         emails: [
             "vp@wh.com"
         ],
-        following: [{
-            handle: '@johnsmith',
-            isApproved: true
-        }, ],
-        age: 30,
-        location: 'whitehouse',
-        bio: 'im the Vp',
-        get name() {
-            return this.firstName + ' ' + this.lastName
-        },
+        following: [{ handle: '@johnsmith', isApproved: true },],
     },
     {
         firstName: 'John',
@@ -53,127 +43,77 @@ const list = [{
         emails: [
             "john@smith.com"
         ],
-        following: [{
-            handle: '@vp',
-            isApproved: true
-        }, ],
-        age: 30,
-        location: 'john town',
-        bio: 'jonny boy',
-        get name() {
-            return this.firstName + ' ' + this.lastName
-        },
+        following: [{ handle: '@vp', isApproved: true },],
     },
 
 ];
 
-module.exports.GetAll = function GetAll() {
-    return list;
-}
-module.exports.Get = function Get(user_id) {
-    return list[user_id];
-}
-module.exports.GetByHandle = function GetByHandle(handle) {
-    return ({
-        ...list.find(x => x.handle == handle),
-        password: undefined
-    });
-}
+module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
 
-module.exports.GetFriendData = function GetFriendData(handle) {
-    const holder = [];
-    const curr = (GetByHandle(handle));
-    holder.push(curr.pic);
-    holder.push(curr.firstName);
-    holder.push((curr.following).length);
-    holder.push(curr.bio);
-    return holder;
-}
+module.exports.Get = user_id => collection.findOne({ _id: new ObjectId(user_id) })
 
+module.exports.GetByHandle = (handle) => collection.findOne({ handle }).then(x => ({ ...x, password: undefined }));
 
-module.exports.Add = function Add(user) {
+module.exports.Add = async function Add(user) {
     if (!user.firstName) {
-        return Promise.reject({
-            code: 422,
-            msg: "First Name is required"
-        })
+        return Promise.reject({ code: 422, msg: "First Name is required" })
     }
 
-    bcrypt.hash(user.password, +process.env.SALTROUNDS)
-        .then(hash => {
-            user.password = hash; // save the hash as the new password
+    const hash = await bcrypt.hash(user.password, +process.env.SALT_ROUNDS)
 
-            list.push(user); // add user to database
-            return {
-                ...user,
-                password: undefined
-            };
-        })
+    console.log({
+        user, salt: process.env.SALT_ROUNDS, hash
+    })
 
+    user.password = hash;
+
+    const user2 = await collection.insertOne(user);
+    user._id = user2.insertedId;
+
+    return { ...user, password: undefined };
 }
 
 
-module.exports.Update = function Update(user_id, user) {
-    const oldObj = list[user_id];
-    if (user.firstName) {
-        oldObj.firstName = user.firstName;
-    }
-    if (user.lastName) {
-        oldObj.lastName = user.lastName;
-    }
-    if (user.handle) {
-        oldObj.handle = user.handle;
-    }
-    if (user.pic) {
-        oldObj.pic = user.pic;
-    }
-    //list[user_id] = newObj ;
-    return {
-        ...oldObj,
-        password: undefined
-    };
+module.exports.Update = async function Update(user_id, user) {
+
+    const results = await collection.findOneAndUpdate(
+        { _id: new ObjectId(user_id) },
+        { $set: user },
+        { returnDocument: 'after' }
+    );
+    console.log({ user_id, results });
+
+    return { ...results.value, password: undefined };
 }
 
-module.exports.Delete = function Delete(user_id) {
-    const user = list[user_id];
-    list.splice(user_id, 1);
-    return user;
+module.exports.Delete = async function Delete(user_id) {
+    const results = await collection.findOneAndDelete({ _id: new ObjectId(user_id) })
+
+    return results.value;
 }
 
 module.exports.Login = async function Login(handle, password) {
-    console.log({
-        handle,
-        password
-    })
-    const user = list.find(x => x.handle == handle);
+    console.log({ handle, password })
+    const user = await collection.findOne({ handle });
     if (!user) {
-        return Promise.reject({
-            code: 401,
-            msg: "Sorry there is no user with that handle"
-        })
-    };
+        return Promise.reject({ code: 401, msg: "Sorry there is no user with that handle" });
+    }
 
     const result = await bcrypt.compare(password, user.password)
 
     if (!result) {
-        return Promise.reject({
-            code: 401,
-            msg: "Wrong Password"
-        });
+        throw { code: 401, msg: "Wrong Password" };
     }
 
-    const data = {
-        ...user,
-        password: undefined
-    };
+    const data = { ...user, password: undefined };
 
-    return {
-        user: data
-    };
+    return { user: data };
+
+
 }
 
-module.exports.Async = async () => {
-    console.log("inner function 1");
-    await Promise.resolve();
-    console.log("inner function 2");
+module.exports.Seed = async () => {
+    for (const x of list) {
+        await module.exports.Add(x)
+    }
 }
