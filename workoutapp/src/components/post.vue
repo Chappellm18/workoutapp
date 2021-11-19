@@ -14,35 +14,50 @@
         </div>
         <div class="media-content">
           <p class="title is-4">
-            {{ post.caption }}
+            {{ post.user_handle }}
           </p>
-          <p class="subtitle is-6">{{ post.user_handle }}</p>
         </div>
       </div>
 
       <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-        iaculis mauris. <a>@bulmaio</a>. <a href="#">#css</a>
-        <a href="#">#responsive</a>
-        <br />
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        {{ post.caption }}
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Save</a>
-      <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">Delete</a>
+      <a href="#" class="card-footer-item">
+        <like-dislike />
+      </a>
+      <a href="#" class="card-footer-item">
+        <share />
+      </a>
+      <a href="#" class="card-footer-item">
+        <comments />
+      </a>
     </footer>
   </div>
+  <br />
+  <hr />
+  <br />
 </template>
 
 <script>
+import likeDislike from "./likeDislike.vue";
+import share from "./share.vue";
+import comments from "./comments.vue";
 export default {
   props: {
     post: Object,
   },
+  components: {
+    likeDislike,
+    share,
+    comments,
+  },
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  border-radius: 15px;
+}
 </style>

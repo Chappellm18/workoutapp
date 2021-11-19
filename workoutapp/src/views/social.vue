@@ -1,107 +1,88 @@
 <template>
-  <div class="container">
-    <hr />
-    <br />
-    <br />
-    <!-- Page contents #start -->
-    <div class="columns">
-      <div class="column is-one-third">
-        <div class="card" style="position: fixed; width: 250px">
-          <div class="card-content">
-            <social-menu-bar />
-          </div>
+  <div class="section">
+    <div class="header">
+      <section class="section is-small">
+        <button class="button is-link is-medium" @click="open()">
+          Create Post
+        </button>
+      </section>
+      <div class="modal" v-bind:class="{ active: isActive }">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- Any other Bulma elements you want -->
+          <post-edit :new-post="newPost" @add="add()" />
+          <post :post="newPost" />
         </div>
-      </div>
-
-      <div class="column is-one-third">
-        <div class="post" v-for="p in posts" :key="p.src">
-          <post :post="p" />
-          <br />
-          <br />
-        </div>
-      </div>
-
-      <div class="column is-one-third">
-        <div class="card" style="width: 450px">
-          <div class="card-content">
-            <ul>
-              <li v-for="x in Session.user.following" v-bind:key="x">
-                <div class="card" style="overflow: hidden; width: 350px">
-                  <div class="card-content">
-                    <div class="columns is-gapless">
-                      <div class="column">
-                        <figure class="image is-96x96">
-                          {{ getFData(x) }}
-                          <!-- calls the function to load the current following profile image -->
-                          <img v-bind:src="pic" />
-                        </figure>
-                      </div>
-                      <div class="column">
-                        <a>{{ friendName }}</a>
-                        <br />
-                        <a>{{ x.handle }}</a>
-                        <hr />
-                        <div class="level">
-                          <div class="level-right">
-                            <a>{{ friendProfileMessage }}</a>
-                          </div>
-                          <div class="level-left">
-                            <a>{{ friendFollowerCount }}</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br />
-                  </div>
-                </div>
-                <br />
-                <br />
-              </li>
-            </ul>
-          </div>
-        </div>
+        <button
+          class="modal-close is-large"
+          @click="open()"
+          aria-label="close"
+        ></button>
       </div>
     </div>
-    <!-- Page contents #end -->
-    <br />
-    <br />
 
-    <hr />
+    <div class="columns">
+      <div class="column">
+        <!-- Friends bar -->
+      </div>
+      <div class="column is-half">
+        <!-- Post feed -->
+        <div class="post" v-for="(p, i) in posts" :key="p.src">
+          <post :post="p" @remove="remove(p, i)" />
+        </div>
+      </div>
+      <div class="column"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import post from "../components/post.vue";
-import Session from "../services/session";
-import { GetWall } from "../services/posts";
-import SocialMenuBar from "../components/socialMenuBar.vue";
-import { GetFriendData } from "../services/users";
+import Post from "../components/post.vue";
+import session from "../services/session";
+import { Add, Delete, GetFeed } from "../services/posts";
+import PostEdit from "../components/post-edit.vue";
+const newPost = () => ({
+  user: session.user,
+  user_handle: session.user.handle,
+});
 export default {
+  components: {
+    Post,
+    PostEdit,
+  },
   data() {
     return {
-      Session,
-      posts: GetWall(Session.user.handle),
-      pic: null,
-      friendName: null,
-      friendFollowerCount: null,
-      friendProfileMessage: null,
+      posts: [],
+      newPost: newPost(),
+      isActive: false,
     };
   },
-  components: {
-    post,
-    SocialMenuBar,
+  async mounted() {
+    this.posts = await GetFeed(session.user.handle);
   },
   methods: {
-    getFData(x) {
-      const holder = GetFriendData(x.handle);
-      this.pic = holder[0];
-      this.friendName = holder[1];
-      this.friendFollowerCount = holder[2];
-      this.friendProfileMessage = holder[3];
+    async remove(post, i) {
+      console.log({ post });
+      const response = await Delete(post._id);
+      if (response.deleted) {
+        this.posts.splice(i, 1);
+      }
+    },
+    async add() {
+      console.log("Adding new post at " + new Date());
+      const response = await Add(this.newPost);
+      console.log({ response });
+      if (response) {
+        this.posts.unshift(response);
+        this.newPost = newPost();
+      }
+    },
+    open() {
+      this.isActive = !this.isActive;
     },
   },
 };
 </script>
 
-<style scoped>
+<style>
 </style>
