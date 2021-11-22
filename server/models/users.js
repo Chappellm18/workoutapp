@@ -18,9 +18,9 @@ module.exports.Add = async function Add(user) {
 
     const hash = await bcrypt.hash(user.password, parseInt(process.env.SALT_ROUNDS))
 
-    //console.log({
-    //   user, salt: process.env.SALT_ROUNDS, hash
-    //})
+    console.log({
+        user, salt: process.env.SALT_ROUNDS, hash
+    })
 
     user.password = hash;
 

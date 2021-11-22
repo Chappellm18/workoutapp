@@ -6,12 +6,18 @@
           Create Post
         </button>
       </section>
-      <div class="modal" v-bind:class="{ active: isActive }">
+      <div class="modal" v-bind:class="{ 'is-active': isActive }">
         <div class="modal-background"></div>
         <div class="modal-content">
           <!-- Any other Bulma elements you want -->
-          <post-edit :new-post="newPost" @add="add()" />
-          <post :post="newPost" />
+          <div class="columns">
+            <div class="column">
+              <post-edit :new-post="newPost" @add="add()" />
+            </div>
+            <div class="column">
+              <post :post="newPost" />
+            </div>
+          </div>
         </div>
         <button
           class="modal-close is-large"
@@ -85,4 +91,9 @@ export default {
 </script>
 
 <style>
+.modal-content {
+  width: 60%;
+  height: 80%;
+  padding: 15px;
+}
 </style>

@@ -35,9 +35,6 @@
       </a>
     </footer>
   </div>
-  <br />
-  <hr />
-  <br />
 </template>
 
 <script>

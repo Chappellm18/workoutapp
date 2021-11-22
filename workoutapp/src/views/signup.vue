@@ -93,7 +93,6 @@
                 <p class="has-text-grey">
                   <router-link to="/login">Have an account? Login</router-link>
                   <br />
-                  <a href="#">Forgot Password?</a>
                 </p>
               </form>
             </div>

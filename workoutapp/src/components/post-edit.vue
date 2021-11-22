@@ -89,5 +89,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  height: 100%;
+  padding: 10px;
+}
 </style>
