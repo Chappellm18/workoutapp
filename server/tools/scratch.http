@@ -55,7 +55,7 @@ http://localhost:3100/posts/618cac0f347b76cc068f980e
 http://localhost:3100/posts/wall/@JewPaltz
 
 ###
-http://localhost:3100/posts/feed/@JewPaltz
+http://localhost:3100/posts/social/@JewPaltz
 
 ###
 http://localhost:3100/posts/search?q=never

@@ -52,23 +52,20 @@
     <br />
     <div class="level">
       <div class="level-item" id="stuff1">
-        
         <ul class="has-text-left">
           <label><strong>Personal Bio</strong></label>
-          <li>Name: {{Session.user.firstName}}</li>
-          <li>Age: {{Session.user.age}}</li>
-          <li>Location: {{Session.user.location}}</li>
+          <li>Name: {{ Session.user.firstName }}</li>
+          <li>Age: {{ Session.user.age }}</li>
+          <li>Location: {{ Session.user.location }}</li>
         </ul>
       </div>
       <div class="level-item" id="stuff2">
-        
         <ul class="has-text-left">
           <label><strong>Workout Bio</strong></label>
-          <li>Favorite Workout: {{`${mostCommonWorkout}`}}</li>
-          <li>Workout Style: {{`${workoutType}`}}</li>
-          <li>Weekly Average: {{`${workoutAmount}`}}</li>
+          <li>Favorite Workout: {{ `${mostCommonWorkout}` }}</li>
+          <li>Workout Style: {{ `${workoutType}` }}</li>
+          <li>Weekly Average: {{ `${workoutAmount}` }}</li>
         </ul>
-        
       </div>
     </div>
     <br />
@@ -104,7 +101,7 @@
 </template>
 
 <script>
-import Session from '../services/session'
+import Session from "../services/session.js";
 export default {
   data() {
     return {

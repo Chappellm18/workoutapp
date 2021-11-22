@@ -11,7 +11,7 @@ export function GetWall(handle) {
 }
 
 export function GetFeed(handle) {
-    return api('posts/feed/' + handle);
+    return api('posts/social/' + handle);
 }
 
 

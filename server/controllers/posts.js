@@ -14,7 +14,7 @@ app
             .then(x => res.send(x))
             .catch(next)
     })
-    .get("/feed/:handle", (req, res, next) => {
+    .get("/social/:handle", (req, res, next) => {
         model.GetFeed(req.params.handle)
             .then(x => res.send(x))
             .catch(next)

@@ -105,28 +105,25 @@
 </template>
 
 <script>
-
-import router from '../router/index.js'
-import Session from '../services/session'
-import { Add } from '../services/users'
+import router from "../router/index.js";
+import Session from "../services/session.js";
+import { Add } from "../services/users.js";
 export default {
   data() {
     return {
-      
-        firstName: null,
-        lastName: null,
-        handle: null,
-        pic: null,
-        password: null,
-        email: null,
-        Session
-      
+      firstName: null,
+      lastName: null,
+      handle: null,
+      pic: null,
+      password: null,
+      email: null,
+      Session,
     };
   },
   methods: {
     processForm: function () {
       Add(this.user);
-      router.push('/login');
+      router.push("/login");
     },
   },
 };

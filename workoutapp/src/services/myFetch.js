@@ -1,6 +1,6 @@
-import session from "./session";
+import session from "./session.js";
 
-const API_ROOT = process.env.VUE_APP_API_ROOT ?? 'http://localhost:3100/';
+const API_ROOT = process.env.VUE_APP_API_ROOT || 'http://localhost:3100';
 
 export async function api(url, data = null, method = null) {
     try {
@@ -8,7 +8,7 @@ export async function api(url, data = null, method = null) {
 
         if (data) {
             response = await fetch(API_ROOT + url, {
-                method: method ?? 'POST', // *GET, POST, PUT, DELETE, etc.
+                method: method || 'POST', // *GET, POST, PUT, DELETE, etc.
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 headers: {
                     'Content-Type': 'application/json'

@@ -44,7 +44,7 @@ import Nopost from "../components/nopost.vue";
 import notifiy from "../components/notifiy.vue";
 //import post from "../components/post.vue";
 import workoutMonthly from "../components/workoutMonthly.vue";
-import Session from "../services/session";
+import Session from "../services/session.js";
 export default {
   data() {
     return {

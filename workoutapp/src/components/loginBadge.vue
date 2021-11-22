@@ -16,7 +16,7 @@
 
 <script>
 import profileBadge from "./profileBadge.vue";
-import Session from "../services/session";
+import Session from "../services/session.js";
 export default {
   data() {
     return {

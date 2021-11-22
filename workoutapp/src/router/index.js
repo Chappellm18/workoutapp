@@ -9,7 +9,7 @@ import profile from '../views/profile.vue'
 import contact from '../views/contact.vue'
 import social from '../views/social.vue'
 
-import Session from '../services/session'
+import Session from '../services/session.js'
 
 const routes = [
   { path: '/', name: 'home', component: home, meta: { requiresLogin: false } },
@@ -29,8 +29,8 @@ const router = createRouter({
   linkActiveClass: 'is-active'
 })
 
-router.beforeEach((to,from,next) => {
-  if(to.meta.requiresLogin && !Session.user){
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresLogin && !Session.user) {
     Session.toRoute = to;
     next('/login');
   }

@@ -38,8 +38,8 @@
 
 <script>
 import Post from "../components/post.vue";
-import session from "../services/session";
-import { Add, Delete, GetFeed } from "../services/posts";
+import session from "../services/session.js";
+import { Add, Delete, GetFeed } from "../services/posts.js";
 import PostEdit from "../components/post-edit.vue";
 const newPost = () => ({
   user: session.user,
