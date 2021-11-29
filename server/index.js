@@ -8,10 +8,10 @@ const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
 
 const app = express()
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3100;
 
 app
-  .use('/', express.static(path.join(__dirname, '../docs')))
+  .use('/', express.static(path.join('../docs/index.html')))
 
   /*
       Access-Control-Allow-Origin: https://foo.example
@@ -30,8 +30,8 @@ app
   .use('/users', usersController)
   .use('/posts', postsController)
 
-app
-  .get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')))
+//app
+//.get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')))
 
 app
   .use((err, req, res, next) => {
