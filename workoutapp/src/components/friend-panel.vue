@@ -36,5 +36,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.panel {
+  background-color: #f5f5f5;
+}
 </style>

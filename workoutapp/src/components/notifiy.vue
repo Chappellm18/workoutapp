@@ -20,8 +20,13 @@ export default {
     return {
       visible: true,
       notifications: [
-        { title: "notify", message: "Message about stuff", id: 1 },
-        { title: "notify 2", message: "Message about other stuff", id: 2 },
+        { title: "notify", message: "Welcome to Get Fit!", id: 1 },
+        {
+          title: "notify 2",
+          message:
+            "This is a social media workout platform to track and share your progress",
+          id: 2,
+        },
       ],
       notifyIndex: 0,
     };
