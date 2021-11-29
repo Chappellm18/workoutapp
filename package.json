@@ -4,7 +4,11 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon --watch server server/index",
+<<<<<<< HEAD
         "start": "nodemon serve/index"
+=======
+        "start": "node server/index"
+>>>>>>> c94a608569dd6b2b63f2af64c2c79b2b12989702
     },
     "repository": {
         "type": "git",
