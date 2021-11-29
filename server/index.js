@@ -32,8 +32,8 @@ app
   .use('/users', usersController)
   .use('/posts', postsController)
 
-//app
-//.get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')))
+app
+  .get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')))
 
 app
   .use((err, req, res, next) => {
