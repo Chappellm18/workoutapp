@@ -11,7 +11,7 @@ const app = express()
 const port = process.env.PORT || 3100;
 
 app
-  .use('/', express.static(path.join('../docs/index.html')))
+  .use('/', express.static(path.join(__dirname, '../docs')))
 
   /*
       Access-Control-Allow-Origin: https://foo.example
