@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style scoped>
+.notifications {
+  font-family: wkfont;
+}
 .message {
   border: solid rgba(110, 110, 235, 0.87);
   border-radius: 15px 45px 15px 45px;

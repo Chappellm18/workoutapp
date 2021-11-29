@@ -21,5 +21,6 @@ export default {};
 .bgimg {
   background-image: url("../assets/workoutMy.jpg");
   border-radius: 10% 38% 0% 24% / 0% 38% 10% 36%;
+  font-family: wkfont;
 }
 </style>

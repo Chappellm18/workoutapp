@@ -112,7 +112,7 @@ export default {
   margin: 0 auto;
 }
 .navbar {
-  background-color: rgb(11, 3, 38);
+  background-color: rgb(196, 181, 247);
   height: 75px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="font-family: wkfont">
     <br />
     <h1 class="is-size-1 has-text-center"><strong>Workout Now</strong></h1>
     <br />

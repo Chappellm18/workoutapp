@@ -1,5 +1,5 @@
 <template>
-  <html style="background-color: rgba(11, 3, 38, 0.8)">
+  <html>
     <head>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,18 +22,6 @@
   </html>
 </template>
 
-<style>
-hr {
-  background-color: rgba(236, 236, 155, 0.918);
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #727aa5;
-}
-</style>
 <script>
 import navB from "./components/navbar.vue";
 import messages from "./components/messages.vue";
@@ -49,3 +37,28 @@ export default {
   },
 };
 </script>
+
+<style>
+hr {
+  background-color: rgba(236, 236, 155, 0.918);
+}
+
+@font-face {
+  font-family: wkfont;
+  src: url("../src/assets/ApexMk2-BoldExtended.otf");
+}
+#app {
+  font-family: wkfont;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #d5d7e4;
+}
+template {
+  font-family: wkfont;
+}
+html {
+  background: rgba(67, 95, 148, 0.753);
+}
+</style>
+

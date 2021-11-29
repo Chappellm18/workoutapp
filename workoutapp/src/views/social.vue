@@ -30,11 +30,14 @@
     <div class="columns">
       <div class="column">
         <!-- Friends bar -->
+
+        <friend-panel :friends="friends" />
       </div>
       <div class="column is-half">
         <!-- Post feed -->
         <div class="post" v-for="(p, i) in posts" :key="p.src">
           <post :post="p" @remove="remove(p, i)" />
+          <br />
         </div>
       </div>
       <div class="column"></div>
@@ -47,6 +50,7 @@ import Post from "../components/post.vue";
 import session from "../services/session.js";
 import { Add, Delete, GetFeed } from "../services/posts.js";
 import PostEdit from "../components/post-edit.vue";
+import FriendPanel from "../components/friend-panel.vue";
 const newPost = () => ({
   user: session.user,
   user_handle: session.user.handle,
@@ -55,12 +59,14 @@ export default {
   components: {
     Post,
     PostEdit,
+    FriendPanel,
   },
   data() {
     return {
       posts: [],
       newPost: newPost(),
       isActive: false,
+      friends: session.user.following,
     };
   },
   async mounted() {
@@ -95,5 +101,8 @@ export default {
   width: 60%;
   height: 80%;
   padding: 15px;
+}
+.friends {
+  background: tan;
 }
 </style>

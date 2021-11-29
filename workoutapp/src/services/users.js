@@ -9,6 +9,7 @@ export function Add(user) {
 }
 
 
+
 export function Update(user_id, user) {
     return api('users/' + user_id, user, 'PATCH');
 }

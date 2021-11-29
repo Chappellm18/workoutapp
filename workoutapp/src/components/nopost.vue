@@ -21,6 +21,9 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
 }
+.section {
+  font-family: wkfont;
+}
 .card {
   box-shadow: inset;
   background-color: bisque;

@@ -1,140 +1,139 @@
 <template>
-<div>
-  <br>
-  <h1 class="is-size-1 has-text-center"><strong>Exercises</strong></h1>
-  <hr>
-<div class="columns is-2">
-    <div class="column is-one-third">
-      <section class="section is-large is-primary">
-        <aside class="menu has-text-left">
-          <p class="menu-label">Upper Body</p>
-          <ul class="menu-list">
-            <li>
-              <a class="is-active" @click="show(0)">Hit The Gym</a>
-              <ul :class="{ 'is-hidden': shown[0] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-            <li>
-              <a class="is-active" @click="show(1)">Outdoors</a>
-              <ul :class="{ 'is-hidden': shown[1] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-            <li>
-              <a class="is-active" @click="show(2)">At Home</a>
-              <ul :class="{ 'is-hidden': shown[2] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-          </ul>
-          <p class="menu-label">Cardio</p>
-          <ul class="menu-list">
-            <li>
-              <a class="is-active" @click="show(3)">Hit The Gym</a>
-              <ul :class="{ 'is-hidden': shown[3] }">
-                <li><a @click="loadWorkout(1)">Treadmill</a></li>
-                <li><a @click="loadWorkout(2)">Bike</a></li>
-                <li><a @click="loadWorkout(3)">Lift</a></li>
-                <li><a @click="loadWorkout(4)">Swim</a></li>
-              </ul>
-            </li>
-            <li>
-              <a class="is-active" @click="show(4)">Outside</a>
-              <ul :class="{ 'is-hidden': shown[4] }">
-                <li><a @click="loadWorkout(1)">Run</a></li>
-                <li><a @click="loadWorkout(2)">Bike</a></li>
-                <li><a @click="loadWorkout(3)">Swim</a></li>
-                <li><a @click="loadWorkout(4)">Other</a></li>
-              </ul>
-            </li>
-            <li>
-              <a class="is-active" @click="show(5)">At Home</a>
-              <ul :class="{ 'is-hidden': shown[5] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-          </ul>
-          <p class="menu-label">Core</p>
-          <ul class="menu-list">
-            <li>
-              <a class="is-active" @click="show(6)">Hit The Gym</a>
-              <ul :class="{ 'is-hidden': shown[6] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-            <li>
-              <a class="is-active" @click="show(7)">In the Fresh Air</a>
-              <ul :class="{ 'is-hidden': shown[7] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-            <li>
-              <a class="is-active" @click="show(8)">At Home</a>
-              <ul :class="{ 'is-hidden': shown[8] }">
-                <li><a @click="loadWorkout(1)">workout1</a></li>
-                <li><a @click="loadWorkout(2)">workout1</a></li>
-                <li><a @click="loadWorkout(3)">workout1</a></li>
-                <li><a @click="loadWorkout(4)">workout1</a></li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-      </section>
-    </div>
-    <div class="column is-two-thirds">
-      <section class="section is-large is-primary">
-        <figure class="image is-3by1">
-          <img v-bind:src="`${workoutData[workoutIndex].step1img}`" />
-        </figure>
-        <br />
-        <hr />
-        <br />
-        <p class="content">{{ workoutData[workoutIndex].step1 }}</p>
-        <br />
-        <hr />
-        <br />
-        <figure class="image is-3by1">
-          <img v-bind:src="`${workoutData[workoutIndex].step2img}`" />
-        </figure>
-        <br />
-        <p class="content">{{ workoutData[workoutIndex].step2 }}</p>
-        <br />
-        <hr />
-        <br />
-        <figure class="image">
-          <iframe
-            class="has-ratio"
-            width="640"
-            height="360"
-            v-bind:src="`${workoutData[workoutIndex].link}`"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </figure>
-      </section>
+  <div style="font-family: wkfont">
+    <br />
+    <h1 class="is-size-1 has-text-center"><strong>Exercises</strong></h1>
+    <hr />
+    <div class="columns is-2">
+      <div class="column is-one-third">
+        <section class="section is-large is-primary">
+          <aside class="menu has-text-left">
+            <p class="menu-label">Upper Body</p>
+            <ul class="menu-list">
+              <li>
+                <a class="is-active" @click="show(0)">Hit The Gym</a>
+                <ul :class="{ 'is-hidden': shown[0] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-active" @click="show(1)">Outdoors</a>
+                <ul :class="{ 'is-hidden': shown[1] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-active" @click="show(2)">At Home</a>
+                <ul :class="{ 'is-hidden': shown[2] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+            </ul>
+            <p class="menu-label">Cardio</p>
+            <ul class="menu-list">
+              <li>
+                <a class="is-active" @click="show(3)">Hit The Gym</a>
+                <ul :class="{ 'is-hidden': shown[3] }">
+                  <li><a @click="loadWorkout(1)">Treadmill</a></li>
+                  <li><a @click="loadWorkout(2)">Bike</a></li>
+                  <li><a @click="loadWorkout(3)">Lift</a></li>
+                  <li><a @click="loadWorkout(4)">Swim</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-active" @click="show(4)">Outside</a>
+                <ul :class="{ 'is-hidden': shown[4] }">
+                  <li><a @click="loadWorkout(1)">Run</a></li>
+                  <li><a @click="loadWorkout(2)">Bike</a></li>
+                  <li><a @click="loadWorkout(3)">Swim</a></li>
+                  <li><a @click="loadWorkout(4)">Other</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-active" @click="show(5)">At Home</a>
+                <ul :class="{ 'is-hidden': shown[5] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+            </ul>
+            <p class="menu-label">Core</p>
+            <ul class="menu-list">
+              <li>
+                <a class="is-active" @click="show(6)">Hit The Gym</a>
+                <ul :class="{ 'is-hidden': shown[6] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-active" @click="show(7)">In the Fresh Air</a>
+                <ul :class="{ 'is-hidden': shown[7] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+              <li>
+                <a class="is-active" @click="show(8)">At Home</a>
+                <ul :class="{ 'is-hidden': shown[8] }">
+                  <li><a @click="loadWorkout(1)">workout1</a></li>
+                  <li><a @click="loadWorkout(2)">workout1</a></li>
+                  <li><a @click="loadWorkout(3)">workout1</a></li>
+                  <li><a @click="loadWorkout(4)">workout1</a></li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+        </section>
+      </div>
+      <div class="column is-two-thirds">
+        <section class="section is-large is-primary">
+          <figure class="image is-3by1">
+            <img v-bind:src="`${workoutData[workoutIndex].step1img}`" />
+          </figure>
+          <br />
+          <hr />
+          <br />
+          <p class="content">{{ workoutData[workoutIndex].step1 }}</p>
+          <br />
+          <hr />
+          <br />
+          <figure class="image is-3by1">
+            <img v-bind:src="`${workoutData[workoutIndex].step2img}`" />
+          </figure>
+          <br />
+          <p class="content">{{ workoutData[workoutIndex].step2 }}</p>
+          <br />
+          <hr />
+          <br />
+          <figure class="image">
+            <iframe
+              class="has-ratio"
+              width="640"
+              height="360"
+              v-bind:src="`${workoutData[workoutIndex].link}`"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </figure>
+        </section>
+      </div>
     </div>
   </div>
-</div>
-  
 </template>
 
 <script>
