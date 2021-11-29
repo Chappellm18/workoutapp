@@ -20,7 +20,12 @@ export default {
     return {
       visible: true,
       notifications: [
-        { title: "notify", message: "Welcome to Get Fit!", id: 1 },
+        {
+          title: "notify",
+          message:
+            "Welcome to Get Fit! Use @test as the username and testpassword as the password to log in. Sign ups broken",
+          id: 1,
+        },
         {
           title: "notify 2",
           message:
