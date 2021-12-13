@@ -13,7 +13,7 @@
                       <i class="fa fa-user is-left"></i>
                     </span>
                     <input
-                      v-model="handle"
+                      v-model="user.handle"
                       name="handle"
                       class="input is-large"
                       type="text"
@@ -28,7 +28,7 @@
                       <i class="fa fa-user is-left"></i>
                     </span>
                     <input
-                      v-model="firstName"
+                      v-model="user.firstName"
                       name="firstName"
                       class="input is-large"
                       type="text"
@@ -43,7 +43,7 @@
                       <i class="fa fa-user is-left"></i>
                     </span>
                     <input
-                      v-model="lastName"
+                      v-model="user.lastName"
                       name="lastName"
                       class="input is-large"
                       type="text"
@@ -58,7 +58,22 @@
                       <i class="fa fa-user is-left"></i>
                     </span>
                     <input
-                      v-model="email"
+                      v-model="user.pic"
+                      name="pic"
+                      class="input is-large"
+                      type="text"
+                      placeholder="profile picture"
+                      autofocus=""
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <span class="icon has-icons-left">
+                      <i class="fa fa-user is-left"></i>
+                    </span>
+                    <input
+                      v-model="user.email"
                       name="email"
                       class="input is-large"
                       type="email"
@@ -73,7 +88,7 @@
                       <i class="fa fa-unlock-alt is-left"></i>
                     </span>
                     <input
-                      v-model="password"
+                      v-model="user.password"
                       name="password"
                       class="input is-large"
                       type="password"
@@ -110,18 +125,31 @@ import { Add } from "../services/users.js";
 export default {
   data() {
     return {
-      firstName: null,
-      lastName: null,
-      handle: null,
-      pic: null,
-      password: null,
-      email: null,
+      user: [
+        {
+          firstName: null,
+          lastName: null,
+          handle: null,
+          pic: null,
+          password: null,
+          email: null,
+        },
+      ],
+
       Session,
     };
   },
   methods: {
     processForm: function () {
-      Add(this.user);
+      const user = {
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        handle: this.user.handle,
+        pic: this.user.pic,
+        password: this.user.password,
+        email: this.user.email,
+      };
+      Add(user);
       router.push("/login");
     },
   },

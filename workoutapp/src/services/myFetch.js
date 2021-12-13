@@ -3,6 +3,7 @@ import session from "./session.js";
 const API_ROOT = process.env.VUE_APP_API_ROOT || 'http://localhost:3100';
 
 export async function api(url, data = null, method = null) {
+    console.log('body: JSON.stringify(data): ' + JSON.stringify(data));
     try {
         let response;
 
@@ -14,6 +15,7 @@ export async function api(url, data = null, method = null) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data) // body data type must match "Content-Type" header
+
             });
         } else {
             response = await fetch(API_ROOT + url);
