@@ -28,7 +28,18 @@ module.exports.GetWall = function GetWall(handle) {
     return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
+module.exports.react = function react(post_id, reaction) {
+    if (reaction == "like") {
+        // increase the likes by 1
+        return collection.findOneAndUpdate({ _id: ObjectId(post_id) }, { $inc: { likes: 1 } });
+    } else if (reaction == "dislike") {
+        // increase the dislikes by 1
+        return collection.findOneAndUpdate({ _id: ObjectId(post_id) }, { $inc: { dislikes: 1 } });
+    } else {
+        // error statement
+    }
 
+}
 
 
 module.exports.GetFeed = async function (handle) {
@@ -49,7 +60,8 @@ module.exports.Add = async function Add(post) {
         throw { code: 422, msg: "Post must have an Owner" }
     }
     post.time = Date();
-
+    post.likes = 0;
+    post.dislikes = 0;
     const response = await collection.insertOne(post);
 
     post.id = response.insertedId;

@@ -14,6 +14,12 @@ export function GetFeed(handle) {
     return api('posts/social/' + handle, null, 'GET');
 }
 
+export function react(post_id, reaction) {
+    console.log("Like stop2");
+    return api('posts/react/' + post_id, reaction, 'POST');
+
+
+}
 
 export function Get(post_id) { return api('posts/' + post_id); }
 

@@ -8,7 +8,9 @@ export function Add(user) {
     return api('users/register', user, 'POST');
 }
 
-
+export function Search(data) {
+    return api('users/search', data);
+}
 
 export function Update(user_id, user) {
     return api('users/' + user_id, user, 'PATCH');

@@ -3,10 +3,7 @@
     <p class="panel-heading">Friends</p>
     <div class="panel-block">
       <p class="control has-icons-left">
-        <input class="input" type="text" placeholder="Search" />
-        <span class="icon is-left">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </span>
+        <search />
       </p>
     </div>
     <p class="panel-tabs">
@@ -29,7 +26,9 @@
 </template>
 
 <script>
+import search from "./search.vue";
 export default {
+  components: { search },
   props: {
     friends: Array,
   },

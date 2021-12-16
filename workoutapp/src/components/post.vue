@@ -25,7 +25,7 @@
     </div>
     <footer class="card-footer">
       <a href="#" class="card-footer-item">
-        <like-dislike />
+        <like-dislike :post="post" />
       </a>
       <a href="#" class="card-footer-item">
         <share />

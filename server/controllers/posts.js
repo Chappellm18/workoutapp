@@ -9,6 +9,11 @@ app
             .then(x => res.send(x))
             .catch(next)
     })
+    .get("/react/:id", (req, res, next) => {
+        model.react(req.params.id, req.body.reaction)
+            .then(x => res.send(x))
+            .catch(next)
+    })
     .get("/wall/:handle", (req, res, next) => {
         model.GetWall(req.params.handle)
             .then(x => res.send(x))

@@ -30,7 +30,7 @@ module.exports.Add = async function Add(user) {
     return { ...user, password: undefined };
 }
 
-
+module.exports.Search = q => collection.find({ firstName: new RegExp(q, "i") }).toArray();
 
 module.exports.Update = async function Update(user_id, user) {
 
