@@ -23,7 +23,7 @@ export default {
         {
           title: "notify",
           message:
-            "Welcome to Get Fit! Use @test as the username and testpassword as the password to log in. Sign ups broken",
+            "Welcome to Get Fit! We are glad you are here. Please take a look around and get started.",
           id: 1,
         },
         {

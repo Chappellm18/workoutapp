@@ -54,9 +54,12 @@ export default {
   data() {
     return {
       notificationsHub: [
-        { welcome: "Noti", message: "bruh" },
-        { welcome: "fasdasdy", message: "bruhbruh" },
-        { welcome: "sadasme", message: "bruhbruhbruh" },
+        { welcome: "Welcome User", message: "Get a workout in today!" },
+        {
+          welcome: "Track It",
+          message: "Make sure to keep your workouts tracked",
+        },
+        { welcome: "Have Fun", message: "Have fun working out or else" },
       ],
       now: new Date().toLocaleString(), // time
       visible: true,
